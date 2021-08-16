@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-addexpense',
+  selector: 'addexpense',
   templateUrl: './addexpense.component.html',
   styleUrls: ['./addexpense.component.css']
 })

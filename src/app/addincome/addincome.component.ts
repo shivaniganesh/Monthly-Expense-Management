@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-addincome',
+  selector: 'addincome',
   templateUrl: './addincome.component.html',
   styleUrls: ['./addincome.component.css']
 })
