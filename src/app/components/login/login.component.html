@@ -1,0 +1,37 @@
+<div class="bootstrap-wrapper">
+    <div class="container ">
+        <div class="signup-form">
+            <form (ngSubmit)="onSubmit()">
+                <div class="container text-center">
+                    <img src="/assets/password.webp" 
+                     class="img-fluid"
+                     style="width: 150px;" alt="">
+                </div>
+                <h2 style="color: #1A1414">Login</h2>
+    
+                <div class="form-group">
+                    <input type="email" class="form-control" name="txtemail" placeholder="Email"
+                    [(ngModel)]="credentials.email" 
+                     required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="txtpw" placeholder="Password" [(ngModel)]="credentials.password" required>
+                    <small
+                        id="passwordHelpBlock" class="form-text text-danger"
+                        aria-describedby="passwordHelpBlock">{{message}} </small>
+                </div>
+       
+                <div class="form-group">
+                    <label style="color: #1A1414" class="checkbox-inline"><input type="checkbox" required> Stay signed in?</label>
+                </div>
+                <div class="form-group">
+                    <button type="submit" name="action" value="LOGIN" class="btn btn-primary">Login</button>
+                </div>
+                <div class="container" >Forgot password? <a mat-icon-button routerLink="/resetPassword">Reset password</a></div>
+                
+            </form>
+            <div class="text-position" >New  User   ?  <a mat-icon-button routerLink="/registration"> Register here !</a></div>
+          
+        </div>
+    </div>
+</div>
