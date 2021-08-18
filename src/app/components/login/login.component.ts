@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service';
+import { NgForm } from '@angular/forms';
+import { User } from 'src/app/classes/user';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,9 @@ export class LoginComponent implements OnInit {
     email:'',
     password:'',
   }
+  user =new User();
   message="";
+  msg="";
   constructor(private loginService:LoginService) { }
 
   ngOnInit(): void {
@@ -23,19 +27,29 @@ export class LoginComponent implements OnInit {
       this.loginService.generateToken(this.credentials).subscribe(
         (response:any)=>{
           //if token generate sucessfully then login
-          console.log(response.token);
-          this.loginService.loginUser(response.token);
+          console.log(this.credentials);
+          
+          localStorage.setItem("token",JSON.stringify(this.credentials));
           window.location.href="/dashborad";
         },
         error=>{console.error();
-        }
+          console.log("Exception Occured");
+          this.msg="Wrong! Email or Password";
+        } );
         
-      );
+     
     }else{
       console.log("Empty value entry")
       this.message="Please fill the data before login"
       
     }
   }
+  // loginUser(){
+  //   this.loginService.loginUserFromRemote(this.user).subscribe(
+  //     data=>{console.log("Response Received");
+    
+  //   },error=>{console.log("Exception Occured");
+  //   this.msg="Wrong! Email or Password";})
+  // }
 
 }

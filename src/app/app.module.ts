@@ -10,7 +10,6 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { ResetComponent } from './components/reset/reset.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -19,6 +18,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ResetComponent } from './components/reset/reset.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     HomeComponent,
     DashboardComponent,
-    ResetComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,

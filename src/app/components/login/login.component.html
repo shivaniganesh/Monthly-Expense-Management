@@ -1,7 +1,7 @@
 <div class="bootstrap-wrapper">
     <div class="container ">
         <div class="signup-form">
-            <form (ngSubmit)="onSubmit()">
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
                 <div class="container text-center">
                     <img src="/assets/password.webp" 
                      class="img-fluid"
@@ -18,14 +18,14 @@
                     <input type="password" class="form-control" name="txtpw" placeholder="Password" [(ngModel)]="credentials.password" required>
                     <small
                         id="passwordHelpBlock" class="form-text text-danger"
-                        aria-describedby="passwordHelpBlock">{{message}} </small>
+                        aria-describedby="passwordHelpBlock">{{message}}{{msg}} </small>
                 </div>
        
                 <div class="form-group">
                     <label style="color: #1A1414" class="checkbox-inline"><input type="checkbox" required> Stay signed in?</label>
                 </div>
                 <div class="form-group">
-                    <button type="submit" name="action" value="LOGIN" class="btn btn-primary">Login</button>
+                    <button type="submit"  name="action" value="LOGIN" class="btn btn-primary">Login</button>
                 </div>
                 <div class="container" >Forgot password? <a mat-icon-button routerLink="/resetPassword">Reset password</a></div>
                 
