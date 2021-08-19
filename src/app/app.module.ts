@@ -16,10 +16,16 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, ɵInternalFormsSharedModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ResetComponent } from './components/reset/reset.component';
 
+
+import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+import { ExpenseComponent } from './expense/expense/expense.component';
+import { ExpenseserviceService } from './services/expenseservice.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,16 +34,30 @@ import { ResetComponent } from './components/reset/reset.component';
     HomeComponent,
     DashboardComponent,
     RegistrationComponent,
-    ResetComponent
+    ResetComponent,
+    ExpenseComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,MatButtonModule,MatToolbarModule,
-    MatIconModule,MatFormFieldModule,MatMenuModule,MatTableModule,MatInputModule,FormsModule,
-    HttpClientModule, ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatMenuModule,
+    MatTableModule,
+    MatInputModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatDividerModule,
+
+    
   ],
-  providers: [],
+  providers: [ExpenseserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

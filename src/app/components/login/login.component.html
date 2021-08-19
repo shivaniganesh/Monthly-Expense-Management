@@ -1,6 +1,9 @@
+
+
 <div class="bootstrap-wrapper">
     <div class="container ">
         <div class="signup-form">
+            
             <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
                 <div class="container text-center">
                     <img src="/assets/password.webp" 
@@ -25,7 +28,7 @@
                     <label style="color: #1A1414" class="checkbox-inline"><input type="checkbox" required> Stay signed in?</label>
                 </div>
                 <div class="form-group">
-                    <button type="submit"  name="action" value="LOGIN" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
                 </div>
                 <div class="container" >Forgot password? <a mat-icon-button routerLink="/resetPassword">Reset password</a></div>
                 

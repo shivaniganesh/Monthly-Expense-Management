@@ -12,7 +12,7 @@ export class LoginService {
   //calling the server to generate token ...it will return obserable
   
   generateToken(credentials:any){
-  return this.http.post(`${this.url}/login`,credentials);
+  return this.http.get(`${this.url}/allusers`,credentials);
 }
   
   //to check user is logged in or not

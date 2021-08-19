@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
           console.log(this.credentials);
           
           localStorage.setItem("token",JSON.stringify(this.credentials));
-          window.location.href="/dashborad";
+          window.location.href="/app-dashboard";
         },
         error=>{console.error();
           console.log("Exception Occured");
