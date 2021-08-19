@@ -19,6 +19,7 @@ const routes: Routes = [
   {path:"registration",component:RegistrationComponent,pathMatch:"full" },
   {path:"resetPassword",component:ResetComponent,pathMatch:"full" },
   
+  
 ];
 
 @NgModule({

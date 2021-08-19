@@ -24,7 +24,7 @@
 .signup-form{
     width: 400px;
     margin: 0 auto;
-    padding: 30px 1px;
+    padding: 10px 1px;
     height: 100vh;
 }
 .signup-form h2{
@@ -56,13 +56,13 @@
 }
 .signup-form form{
     color: #999;
-    border-radius: 60px;
+    border-radius: 100px;
     margin-bottom: 15px;
     background: white;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
     padding: 40px;
     height: auto;
-    margin-top: 2px;
+    margin-top: 0px;
 }
 .signup-form .form-group{
     margin-bottom: 20px;

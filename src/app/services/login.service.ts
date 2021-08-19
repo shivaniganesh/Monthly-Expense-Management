@@ -7,6 +7,7 @@ import { User } from '../classes/user';
   providedIn: 'root'
 })
 export class LoginService {
+  user =new User();
   url="http://localhost:8080/sprexp/userProfile";
   constructor(private http:HttpClient) { }
   //calling the server to generate token ...it will return obserable
@@ -31,5 +32,14 @@ export class LoginService {
   }
   getToken(){
     return localStorage.getItem('token');
+  }
+
+  //for registration
+   registerUserFromRemote(user:User):Observable<any>{
+     return this.http.post(`${this.url}/addUserProfile`,user)
+
+  }
+  resetPasswordFromRemote(user:User):Observable<any>{
+    return this.http.put(`${this.url}/resetPassword`,user)
   }
 }

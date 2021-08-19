@@ -1,7 +1,9 @@
 <div class="bootstrap-wrapper">
     <div class="container">
         <div class="signup-form">
-            <form>
+            <form #resetForm="ngForm" (ngSubmit)="resetPassword()">
+                <small class="text-success">{{msg}}</small>
+                <small class="text-danger">{{errorMessage}}</small>
                 <div class="container text-center">
                     <img src="/assets/password.webp" 
                      class="img-fluid"
@@ -10,26 +12,32 @@
                 <h2 style="color: #1A1414">Reset Password</h2>
     
                 <div class="form-group">
-                    <input type="email" class="form-control" name="txtemail" placeholder="Enter your Email" required="required">
+                    <input type="email" class="form-control" name="txtemail" placeholder="Email"
+                    [(ngModel)]="user.email" 
+                     required #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [class.is-invalid]="email.invalid && email.touched">
+
+                    <div *ngIf="email.errors && (email.invalid && email.touched)">
+                        <small class="text-danger" *ngIf="email.errors.required">Email Id is required field</small>
+                        <small class="text-danger" *ngIf="email.errors.pattern">Enter the valid Email Id</small>
+                    </div>
+                </div> 
+
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="user.password" #password="ngModel" required
+                    [class.is-invalid]="password.invalid && password.touched"
+                    ><small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small>
+                    
+                   
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" name="txtpw" placeholder=" New Password" required="required">
-                    <small
-                        id="passwordHelpBlock" class="form-text text-danger"
-                        aria-describedby="passwordHelpBlock"> </small>
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" name="txtpw" placeholder=" Confirm Password" required="required">
-                    <small
-                        id="passwordHelpBlock" class="form-text text-danger"
-                        aria-describedby="passwordHelpBlock"> </small>
-                </div>
+                    <input type="password" id="password" class="form-control" #cpassword="ngModel" (ngModel)="user.password"
+                        name="cpassword" placeholder="Confirm Password" [class.is-invalid]="cpassword.invalid && password.touched"
+                        required />
+                        <small class="text-danger" [class.d-none]="(cpassword.value==password.value) ||cpassword.untouched">Password and confirm password must be same</small>
+                </div> 
        
                 <div class="form-group">
-                    <label style="color: #1A1414" class="checkbox-inline"><input type="checkbox" required="required"> Stay signed in?</label>
-                </div>
-                <div class="form-group">
-                    <button type="submit" name="action"  class="btn btn-primary">Reset</button>
+                    <button type="submit" [disabled]="resetForm.form.invalid" name="action"  class="btn btn-primary">Reset</button>
                 </div>
                 <div class="text-center"><a routerLink="/login">Login Now</a></div>
             </form>

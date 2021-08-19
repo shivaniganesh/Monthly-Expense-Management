@@ -19,6 +19,10 @@ import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ResetComponent } from './components/reset/reset.component';
+import { AboutusComponent } from './components/aboutus/aboutus.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+ 
+
 
 @NgModule({
   declarations: [
@@ -28,14 +32,15 @@ import { ResetComponent } from './components/reset/reset.component';
     HomeComponent,
     DashboardComponent,
     RegistrationComponent,
-    ResetComponent
+    ResetComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,MatButtonModule,MatToolbarModule,
     MatIconModule,MatFormFieldModule,MatMenuModule,MatTableModule,MatInputModule,FormsModule,
-    HttpClientModule, ReactiveFormsModule,
+    HttpClientModule, ReactiveFormsModule,NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
