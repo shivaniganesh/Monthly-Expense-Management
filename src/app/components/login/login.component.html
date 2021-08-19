@@ -3,8 +3,9 @@
 <div class="bootstrap-wrapper">
     <div class="container ">
         <div class="signup-form">
-            
+          
             <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+               
                 <div class="container text-center">
                     <img src="/assets/password.webp" 
                      class="img-fluid"
@@ -15,13 +16,20 @@
                 <div class="form-group">
                     <input type="email" class="form-control" name="txtemail" placeholder="Email"
                     [(ngModel)]="credentials.email" 
-                     required>
+                     required #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [class.is-invalid]="email.invalid && email.touched">
+                     <!-- <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email Id is required</small> -->
+                    <div *ngIf="email.errors && (email.invalid && email.touched)">
+                        <small class="text-danger" *ngIf="email.errors.required">Email Id is required field</small>
+                        <small class="text-danger" *ngIf="email.errors.pattern">Enter the valid Email Id</small>
+                    </div>
                 </div>
+
                 <div class="form-group">
-                    <input type="password" class="form-control" name="txtpw" placeholder="Password" [(ngModel)]="credentials.password" required>
-                    <small
-                        id="passwordHelpBlock" class="form-text text-danger"
-                        aria-describedby="passwordHelpBlock">{{message}}{{msg}} </small>
+                    <input type="password" class="form-control" name="txtpw" placeholder="Password" [(ngModel)]="credentials.password" #password="ngModel" required
+                    [class.is-invalid]="password.invalid && password.touched"
+                    ><small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small>
+                    
+                    <small class="text-danger">{{msg}}</small>
                 </div>
        
                 <div class="form-group">

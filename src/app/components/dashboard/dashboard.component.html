@@ -21,8 +21,8 @@
         <mat-divider></mat-divider>
 
         <button mat-button class="menu-button">
-            <mat-icon>home</mat-icon>
-            <span>Home</span>
+            <mat-icon>apps</mat-icon>
+            <span>Dashboard</span>
         </button>
         <button mat-button class="menu-button">
             <mat-icon>person</mat-icon>
@@ -30,7 +30,7 @@
         </button>
         <button mat-button class="menu-button">
             <mat-icon>info</mat-icon>
-            <a class="expense ripple-element" style="color: ivory;" id="nav-expense" routerLink="/expense" routerLinkActive="active-link">Transactions</a>
+            <span (click)="showExpenseTable()">transaction</span>
         </button>
 
         <mat-divider></mat-divider>
@@ -50,7 +50,7 @@
                     <div class="flex-child" contenteditable="false" id="three" style="resize:both;overflow:auto;border:1px solid darkgray;padding:10px;background-color:#FFFFFF;"></div>
                 </div>
             </div> -->
-            
+            <app-expense [showMePartially]="showVar"></app-expense>
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

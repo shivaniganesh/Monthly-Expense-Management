@@ -22,7 +22,7 @@ export class ExpenseserviceService {
       .get<IExpense[]>(this.resturl + '/allexpenses')
       .pipe(retry(1), catchError(this.handleError));
   }
-  createEmployee(expense: any): Observable<IExpense>{
+  createExpense(expense: any): Observable<IExpense>{
     return this.http.post<IExpense>(this.resturl+'/addexpense',JSON.stringify(expense), this.httpOptions)
     .pipe(retry(1), catchError(this.handleError));
   }

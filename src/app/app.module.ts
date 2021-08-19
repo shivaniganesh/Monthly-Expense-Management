@@ -19,6 +19,10 @@ import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule, ɵInternalFormsSharedModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ResetComponent } from './components/reset/reset.component';
+import { AboutusComponent } from './components/aboutus/aboutus.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+ 
+
 
 
 import { MatSelectModule } from '@angular/material/select';
@@ -36,6 +40,7 @@ import { ExpenseserviceService } from './services/expenseservice.service';
     RegistrationComponent,
     ResetComponent,
     ExpenseComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,

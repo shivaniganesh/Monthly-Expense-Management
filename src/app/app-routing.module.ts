@@ -21,6 +21,7 @@ const routes: Routes = [
   {path:"resetPassword",component:ResetComponent,pathMatch:"full" },
   {path:"expense",component:ExpenseComponent,pathMatch:"full" },
   
+  
 ];
 
 @NgModule({

@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
     email:'',
     password:'',
   }
-  user =new User();
+  
   message="";
   msg="";
   constructor(private loginService:LoginService) { }
@@ -44,12 +44,6 @@ export class LoginComponent implements OnInit {
       
     }
   }
-  // loginUser(){
-  //   this.loginService.loginUserFromRemote(this.user).subscribe(
-  //     data=>{console.log("Response Received");
-    
-  //   },error=>{console.log("Exception Occured");
-  //   this.msg="Wrong! Email or Password";})
-  // }
+
 
 }

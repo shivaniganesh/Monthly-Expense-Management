@@ -12,10 +12,14 @@ export class DashboardComponent implements OnInit {
 
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
-  
+  showVar: boolean = false;
+
   ngOnInit(): void {
   }
 
+  showExpenseTable() {
+    this.showVar = true;
+  }
   constructor(private observer: BreakpointObserver) {}
 
   ngAfterViewInit() {

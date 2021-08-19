@@ -20,12 +20,12 @@ mat-sidenav {
     margin: 16px;
     margin-left: 32px;
 
-    /* display: flex; */
+    display: flex;
     justify-content: center;
     align-items: center;
     
-    font-size: 2rem;
-    color: lightgray;
+    font-size: 1rem;
+    color: rgb(14, 12, 12);
 }
 /* #maincontent {
     width: 100%;

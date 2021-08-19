@@ -1,7 +1,9 @@
 <div class="bootstrap-wrapper">
     <div class="container">
         <div class="signup-form">
-            <form>
+            <form #registrationForm="ngForm" (ngSubmit)="onSubmit()">
+                <small class="text-danger ">{{msg}}</small>
+                <!-- <small [class.text-danger]="msg.status==500">{{msg.message}}</small> -->
                 <h2 style="color: #1A1414">Register</h2>
                 <p style="color: #3D2F2F" class="hint-text">Create an account to
                     be a member!</p>
@@ -10,42 +12,68 @@
                     <div class="row">
                         <div class="col-xs-6">
                             <input type="text" class="form-control" name="txtfname"
-                                placeholder="First Name" required="required">
-                        </div>
-                        <div class="col-xs-6">
-                            <input type="text" class="form-control" name="txtlname"
-                                placeholder="Last Name" required="required">
+                                placeholder="First Name" #fname="ngModel" [(ngModel)]="user.fname"required [class.is-inavlid]="fname.invalid && fname.touched">
+                                <small class="text-danger" [class.d-none]="fname.valid || fname.untouched">First Name is Required</small>
                         </div>
                     </div>
+                </div> 
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <input type="text" class="form-control" name="txtlname"
+                            placeholder="Last Name" required #lname="ngModel" [(ngModel)]="user.lname">
+                    </div>
+                </div>
+                
+                
+                <div class="form-group">
+                    <input type="email" class="form-control" name="txtemail" placeholder="Email"
+                    [(ngModel)]="user.email" 
+                     required #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [class.is-invalid]="email.invalid && email.touched">
+
+                    <div *ngIf="email.errors && (email.invalid && email.touched)">
+                        <small class="text-danger" *ngIf="email.errors.required">Email Id is required field</small>
+                        <small class="text-danger" *ngIf="email.errors.pattern">Enter the valid Email Id</small>
+                    </div>
+                </div> 
+
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="user.password" #password="ngModel" required
+                    [class.is-invalid]="password.invalid && password.touched"
+                    ><small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small>
+                    
+                   
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" name="txtemail"
-                        placeholder="Email" required="required">
-                </div>
+                    <input type="password" id="password" class="form-control" #cpassword="ngModel" (ngModel)="user.password"
+                        name="cpassword" placeholder="Confirm Password" [class.is-invalid]="cpassword.invalid && password.touched"
+                        required />
+                        <small class="text-danger" [class.d-none]="(cpassword.value==password.value) ||cpassword.untouched">Password and confirm password must be same</small>
+                </div> 
+               
                 <div class="form-group">
-                    <input type="password" id="password" class="form-control"
-                        name="txtpw" placeholder="Password" required="required" /> <small
-                        id="passwordHelpBlock" class="form-text text-muted"
-                        aria-describedby="passwordHelpBlock"> Your password must be
-                        8-20 characters long. </small>
-                </div>
-                <div class="form-group">
-                    <input type="password" id="password" class="form-control"
-                        name="txtconfirmpw" placeholder="Confirm Password"
-                        required="required" /> <span id='message'></span>
-                </div>
+                    <input type="number" class="form-control" name="phoneNumber" placeholder="Enter your mobile number" [(ngModel)]="user.phoneNumber" #phoneNumber="ngModel" required
+                    [class.is-invalid]="phoneNumber.invalid && phoneNumber.touched"
+                    ><small class="text-danger" [class.d-none]="phoneNumber.valid || phoneNumber.untouched">Phone Number  is required field</small>
+                    
+                   
+                </div> 
+
+
                 <div class="form-group">
                     <label style="color: #3D2F2F" class="checkbox-inline"><input
-                        type="checkbox" required="required"> I accept the <a
+                        type="checkbox"  name="checkbox" required> I accept the <a
                         href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="submit" [disabled]="registrationForm.form.invalid"class="btn btn-primary">Register</button>
+                    
                 </div>
+                
                 <div class="text-center">
                     Already have an account? <a routerLink="/login">Sign in</a>
                 </div>
             </form>
+            
             
         </div>
     </div>
