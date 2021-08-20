@@ -6,4 +6,10 @@ div.modal div.modal-backdrop {
     height:200px;
     overflow:scroll;
 }
+thead th{
+    position: sticky;
+    top:0;
+    background: whitesmoke;
+    z-index:5;
+}
 
