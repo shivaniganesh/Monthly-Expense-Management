@@ -6,10 +6,12 @@ import { ExpenseserviceService } from 'src/app/services/expenseservice.service';
 @Component({
   selector: 'app-expense',
   templateUrl: './expense.component.html',
-  styleUrls: ['./expense.component.css']
+  styleUrls: ['./expense.component.css'],
+  
 })
 export class ExpenseComponent implements OnInit {
   expense: any=[];
+  display = "none";
   @Input() showMePartially: boolean | undefined;
   constructor(public router: Router,
     public aroute: ActivatedRoute,
@@ -35,6 +37,11 @@ export class ExpenseComponent implements OnInit {
       }
     );
   }
-  
+  openModal() {
+    this.display = "block";
+  }
+  onCloseHandled() {
+    this.display = "none";
+  }
 
 }
