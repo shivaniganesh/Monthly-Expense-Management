@@ -7,6 +7,12 @@ import { LoginService } from '../../services/login.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  active = 1;
+  btn=false;
+  myStyle={
+    
+    display:"none",
+  }
 public loggedIn=false;
   constructor(private loginService:LoginService) { }
 
@@ -15,7 +21,19 @@ public loggedIn=false;
   }
   logout(){
     this.loginService.logout();
-    location.reload();
+    window.location.href="";
+  }
+  dashBoard(){
+    window.location.href="/home";
+  }
+  btnClick(){
+    this.btn=true;
+  }
+  closeModel(){
+    this.myStyle.display="none";
+  }
+  openModel(){
+    this.myStyle.display="block";
   }
 
 }

@@ -21,6 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ResetComponent } from './components/reset/reset.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import {MatListModule} from '@angular/material/list';
+import { BeinspiredComponent } from './components/beinspired/beinspired.component';
  
 
 
@@ -33,14 +36,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     DashboardComponent,
     RegistrationComponent,
     ResetComponent,
-    AboutusComponent
+    AboutusComponent,
+    
+    BeinspiredComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,MatButtonModule,MatToolbarModule,
     MatIconModule,MatFormFieldModule,MatMenuModule,MatTableModule,MatInputModule,FormsModule,
-    HttpClientModule, ReactiveFormsModule,NgbModule,
+    HttpClientModule, ReactiveFormsModule,NgbModule,MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

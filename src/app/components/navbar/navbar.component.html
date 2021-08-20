@@ -1,11 +1,300 @@
 
-<mat-toolbar color="primary" style="margin-right:2px;">
-    <a mat-icon-button routerLink="/home"> <mat-icon>home</mat-icon></a>
-    <span class="example-spacer"></span>
-    <a *ngIf="!loggedIn"mat-icon-button routerLink="/login">login</a>
-    <a *ngIf="loggedIn" mat-icon-button routerLink="/userprofile">user</a>
-    <a *ngIf="loggedIn" mat-icon-button (click)="logout()">logout</a>
+  <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #673ab7;color: white;" >
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a *ngIf="!loggedIn" mat-icon-button class="nav-link toggle active text-light" href="#"> <mat-icon>home</mat-icon></a>
+        </li>
+        <button  *ngIf="loggedIn"mat-mini-fab color="primary"   >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <li class="nav-item">
+          <a  *ngIf="loggedIn" class="nav-link text-light" routerLink="/">Expenses</a>
+        </li>
+        <li class="nav-item">
+          <a  *ngIf="loggedIn"class="nav-link text-light" routerLink="/">Repots</a>
+        </li>
+       
+        <li class="nav-item">
+          <a *ngIf="!loggedIn" (click)="btnClick()" class="nav-link text-light" routerLink="/beinspired">Be Inspired</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="!loggedIn" (click)="btnClick()" class="nav-link text-light" routerLink="/aboutus">About Us</a>
+        </li>
+        
+        
+      </ul>
+      <form class="d-flex">
+
+          <a *ngIf="!loggedIn" (click)="btnClick()" mat-icon-button routerLink="/login">Login</a>
+          <a *ngIf="loggedIn" (click)="openModel()" mat-icon-button routerLink="/userprofile">user</a>
+          <a *ngIf="loggedIn" mat-icon-button (click)="logout()">logout</a>
+
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Modal -->
+<div class="container">
+<div class="sidebar" id="sidebar" [ngStyle]="myStyle" style="display:none;position: absolute;top: 0px;bottom: 0px;left: 70%; right: 0px;">
+  <div id=sidebar-top>
+      <div id="sidebar_header">
+         <button  (click)="closeModel()" ><i class="fa fa-arrow-left"></i><h3>Profile</h3></button>
+        </div>
+         
+
+      <div id="sidebar_image">
+          <img src="../assets/images/sujeet.jpg" alt="sujeet image">
+          
+          
+
+      </div>
+      <div class="sidebar_name"><h4>Your name</h4>
+         <input type="text" name="profileanme" id="profilename" value="Sujeet"><button><i class=" fa fa-pencil"></i></button>
+
+      </div>
+      <div class="title">
+          <p>Hi</p>
+
+      </div>
+      <div class="sidebar_name"><h4>About</h4>
+         <input type="text" name="profileanme" id="profilename" value="Where there's a will ,there's a way😊"><button ><i class=" fa fa-pencil"></i></button>
+
+      </div>
+      
+
+
+  </div>   
+     
+     
+     
+ </div>
+</div>
+
+
+
+
+
+
+<div *ngIf="!loggedIn">
+  <div *ngIf="!btn "  class="container-fluid" >
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+      <li [ngbNavItem]="1">
+        <a ngbNavLink>Explore The Apps</a>
+        <ng-template ngbNavContent>
+          
+          <div class="container-fluid" id="container1" >
+            <img src="../assets/image/img (4).svg" alt="" id="img4">
+            
+              <div class="div-head1">
+                <h1 class="header1">Gain Total Control of Your Money </h1>
+              <h3 class="header3">Stop living paycheck-to-paycheck,
+                get out of debt, and save more money™</h3>
+              </div>
+             
+          </div>
+          <div class="container-fluid" id="container2" >
+            <img src="../assets/image/img (1).jpeg" alt="" id="img1">
+            
+              <div class="div-head2" >
+                <h1 class="header1">You Need A Budget is award-winning software and a proven method—that works. </h1>
+              <h3 class="header3">What really makes You Need A Budget different is that we can teach you how to manage your money and get ahead—for good. What if your bills rolled in and instead of piling up, you just paid them? No sweat.
+                 What if you didn’t even realize it was payday because you had money in the bank and weren’t desperate for that check to arrive?</h3>
+                 <h3><b>Forget everything you think you know about budgeting and prepare to experience total control.</b></h3>
+              </div>
+             
+          </div>
+          <div class="container-fluid" id="container3" >
+            <img src="../assets/image/img (5).png" alt="" id="img5">
+            
+              <div class=div-head3 >
+                <h1 class="header1">Know Budget basics </h1>
+              <h3 class="header3">Do you know why a budget is so important? On the surface it seems like creating a budget is just a tedious financial exercise, especially if you feel your finances are already in good order. 
+                But you might be surprised at just how valuable a budget can be. A good budget can help keep your spending on track and even uncover some hidden cash flow problems that might free up even more money to put toward your</h3>
+                
+              </div>
+             
+          </div>
+          <div class="container-fluid" id="container4" >
+            <img src="../assets/image/img (17).png" alt="" id="img17">
+            <div class="div-head4" >
+              <h1 class="header1">Basic Worksheet </h1>
+            <h3 class="header3">If you’re having difficulty coming up with all of the various expense categories for your budget, use this budget worksheet that can help you organize everything. 
+              This worksheet has the most common expenses and can help you keep track of everything in an orderly fashion.</h3>
+              
+            </div>
+             
+          </div>
+          <div class="container-fluid" id="container5" >
+            
+            <div class="text-center " >
+              <h1  class="msgHeader">Changed lives speak for themselves. </h1>
+            <h3 >We will help you to get out of debt and gain control of your money.</h3> 
+            </div>
+           <div class="reviewContainer">
+            <div class="reviewbox">
+
+
+              <div  class="reviewImg">
+                
+                <h3 class="reviewMessage">
+                  The best app for Money Mangement.
+                </h3>
+                <footer class="footer-class">
+                  <img src="../assets/images/sujeet.jpg" alt="" >
+                <h2 class="text-info">Sujeet Kumar</h2>
+                </footer>
+              </div>
+            </div>
+            <div class="reviewbox">
+              <div  class="reviewImg">
+                
+                <h3 class="reviewMessage">
+                  The best app for Money Mangement.
+                </h3>
+                <footer class="footer-class">
+                  <img src="../assets/images/sourav.jpeg" alt="" >
+                <h2 class="text-info">Sourav Kumar</h2>
+                </footer>
+              </div>
+              
+            </div>
+            <div class="reviewbox">
+              <div  class="reviewImg">
+                
+                <h3 class="reviewMessage">
+                  The best app for Money Mangement.
+                </h3>
+                <footer class="footer-class">
+                  <img src="../assets/images/shishir.jpeg" alt="" >
+                <h2 class="text-info">Shishir Vardhan</h2>
+                </footer>
+              </div>
+           </div>
+              
+            </div>
+            <div class="container-fluid" id="container6" >
+              <img src="../assets/image/img (1).png" alt="" id="img11" class="mt">
+              <div class="div-head6" >
+                <h1 class="footer-header">You can do this! Right now! For free! </h1>
+              <h3 class="header3">Budgeting is not restrictive. You won’t be spending less, you’ll be spending smart. So what do you have to lose? (Other than all that debt and stress, of course...).</h3>
+                
+              </div>
+               
+            </div>
+
+             
+          </div>
     
-  </mat-toolbar>
+        
+
+
+
+
+
+
+
+
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="2">
+        <a ngbNavLink>Features</a>
+        <ng-template ngbNavContent>
+          <div class="container-fluid" id="container1-features" >
+            <img src="../assets/image/features1.svg" alt="" id="img111">
+            
+              <div class="div-head1">
+                <h1 class="header1">The Tools Of
+                  Our Trade</h1>
+              <h3 class="header3">Ready to roll up your sleeves and get dirty?
+                (Just kidding, it’s just budgeting…) </h3>
+              </div>
+             
+          </div>
+          <div class="container-fluid" id="container2-features" >
+            <table class="col-10">
+              <tr>
+                <td><img src="../assets/image/proven-method.svg" alt="" id="img111"></td> 
+                <td ><h1>Proven Method</h1>
+                  <h3>
+                    Our Four Rules are the key, the magic, the secret sauce, if you will.
+                     Learn our method and you could budget successfully, blindfolded, with one arm tied behind your back. (Well, you could, but it’s still easier with the software.)
+                  </h3>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="../assets/image/budget-together.svg" alt="" id="img111"></td> 
+                <td><h1>Budget Together</h1>
+                  <h3>
+                    Access to real-time information, from any device, anytime, makes it drop-dead simple to share finances with a partner (and not accidentally overspend at Target).
+                   </h3>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="../assets/image/goal-setting.jpg" alt="" id="img111" class="rounded1"></td> 
+                <td><h1>Goal Tracking</h1>
+                  <h3>
+                    Budgeting isn’t about restriction. It’s about setting and reaching your goals. And then setting new, bigger goals, and doing it again. Boom!
+                  </h3>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="../assets/image/reports-img.svg" alt="" id="img111"></td> 
+                <td><h1>Reports</h1>
+                  <h3>
+                    Eye candy (read: graphs and charts) make it fun to obsess over your progress. 
+                    Watch out—we might make a budgeting nerd out of you yet!
+                  </h3>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="../assets/image/personal-support.jpg" alt="" id="img111"></td> 
+                <td><h1>Personal Support</h1>
+                  <h3>
+                    We’re invested in your success. Shoot us an email .
+                    
+                  </h3>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="../assets/password.webp" alt="" id="img111"></td> 
+                <td><h1>Secure Data</h1>
+                  <h3>
+                    Security is our #1 priority. We encrypt our data, bcrypt hash all user passwords, and the data centers we use are accredited multiple times over. 
+                    (If you are the type of person who actually knows what this means, all the nitty-gritty details are outlined on our Privacy and Security pages.)
+                  </h3>
+                </td>
+              </tr>
+            </table>
+            
+              
+             
+          </div>
+        </ng-template>
+
+      </li>
+      <li [ngbNavItem]="3">
+        <a ngbNavLink>Our App Lineup</a>
+        <ng-template ngbNavContent>
+          <div class="container-fluid" id="container1" >
+            <img src="../assets/image/applinup.svg" alt="" id="img4">
+            
+              <div class="div-head1">
+                <h1 class="header1">MYB(Manage Your Budget) is With You Wherever You Are</h1>
+              <h3 class="header3">(So there are no excuses for your budget plan.)</h3>
+              </div> 
+             
+          </div>
+        </ng-template>
+      </li>
+    </ul>
+    
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    
+  </div>
+  </div>
   
  

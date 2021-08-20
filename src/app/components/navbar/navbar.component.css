@@ -1,0 +1,322 @@
+.modal-body{
+    background-color:#66499a;
+    display:absolute;
+    
+    left:0%;
+    height: 100%!important;
+    bottom:0px;
+    
+}
+.model{
+    height: 100%;
+}
+
+div #container1{
+    /* Background pattern from Toptal Subtle Patterns */
+    
+    height: 500px;
+    width: 100%;
+    background-image: linear-gradient(to bottom right, #21157e, #dee0d4);
+    box-shadow: 2px 5px 10px rgb(93, 47, 201);
+ }
+ #img4{
+    
+    display: flex;
+    float: right;
+    width: 46%;
+
+ }
+ #header-txt{
+   font-family:  Gilroy Heavy,Arial,sans-serif;
+   position: relative;
+
+ }
+ .div-head1{
+    width: 30%;
+    font-family:  Gilroy Heavy,Arial,sans-serif;
+    position: relative;
+    color: white;
+    top: 20vh;
+    left:10%;
+
+ }
+ .header1{
+     font-size: 300%;
+     font-weight: 500;
+    
+     
+     text-transform: uppercase;
+     display: table-cell;
+    vertical-align: middle;
+    
+
+
+ }
+ .header3{
+    
+    
+    display:inline-flex;
+    
+    
+
+ }
+
+
+
+ 
+.icons i{
+    font-size: 29px;
+    font-weight: lighter;
+    color: rgb(107, 103, 103);
+    margin: 10px;
+    padding: 5px;
+    cursor:pointer;
+    
+  }
+  #sidebar-top{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    
+  }
+  .sidebar_name{
+    background-color: white;
+    width: 100%;
+    height: 90px;
+    padding: 10px;
+    
+  
+  }
+  .sidebar_name input{
+    
+    width: 93%;
+    height: 30px;
+    border:none ;
+    font-size: 16px;
+    
+  }.title{
+    width: 100%;
+    background-color: rgb(238, 238, 238);
+    color: black;
+    padding: 10px;
+  }
+  .sidebar_name button{
+    color: black;
+    width: 7%;
+    border: none;
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+    font-size: 30px;
+    
+  }
+  
+  #sidebar_image{
+    background-color: rgb(226, 226, 226);
+    width: 100%;
+    height: 300px;
+  
+  }
+  #sidebar_image img{
+    height: 250px;
+    width: 250px;
+    position:absolute;
+    border-radius: 125px;
+    margin: 25px 68px;
+    
+  }
+  
+  #sidebar_header
+  {
+    background-color: rgb(103 58 183);
+    width: 100%;
+    height: 150px;
+    outline: none;
+    color: white;
+    outline: none;
+    
+  
+  }
+  #sidebar_header i {
+    position:absolute;
+    top: 110px;
+    left: 10px;
+    color: white;
+    font-size: 20px;
+    outline: none;
+  }
+  #sidebar_header h3{
+    position:absolute;
+    top: 106px;
+    left: 40px;
+    color:white;
+  
+  }
+
+  #container2{
+    margin-top: 20px;
+    
+    height: 400px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 2px 5px 10px rgb(93, 47, 201);
+
+  }
+  #img1{
+    display: flex;
+    width: 50%;
+    float: left;
+    left: 20px;
+    height: 400px;
+    margin-left:0;
+  }
+  .div-head2{
+    color: black;
+    float: right;
+    width: 40%;
+    margin-right: 30px;
+    margin-top: 20px;
+    font-family:  Gilroy Heavy,Arial,sans-serif;
+    
+  }
+  #container3{
+    margin-top: 20px;
+    height: 500px;
+    width: 100%;
+    background-image: linear-gradient(to bottom right, #59b62e, #dee0d4);
+    box-shadow: 2px 5px 10px rgb(93, 47, 201);
+
+  }
+  #img5{
+    display: flex;
+    width: 50%;
+    float: right;
+    left: 20px;
+    height: 400px;
+    
+    margin-top: 40px;
+  }
+  .div-head3{
+    color: black;
+    float: right;
+    width: 40%;
+    margin-right: 30px;
+    margin-top: 100px;
+    font-family:  Gilroy Heavy,Arial,sans-serif;
+  }
+  #container4{
+    margin-top: 20px;
+    height: 450px;
+    width: 100%;
+    background-color: #71b1df;
+    box-shadow: 2px 5px 10px rgb(93, 47, 201);
+
+  }
+  .div-head4{
+    color: black;
+    float: right;
+    width: 40%;
+    margin-right: 50px;
+    margin-top: 80px;
+    
+    font-family:  Gilroy Heavy,Arial,sans-serif;
+  }
+  #img17{
+    display: flex;
+    width: 45%;
+    float: left;
+    left: 20px;
+    height: 400px;
+    margin-top: 20px;
+    
+  }
+  #container5{
+    margin-top: 20px;
+    height: 500px;
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(to bottom right, #8653a6, #dee0d4);
+    box-shadow: 2px 5px 10px rgb(93, 47, 201);
+
+  }
+  .reviewbox{
+    margin: 10px;
+    width: 400px;
+    height: 380px;
+    border-radius: 10px 15px;
+    box-shadow: 2px 5px 10px rgb(20, 228, 107);
+
+  }
+  .reviewContainer{
+    margin-left: 100px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+  }
+  
+  .reviewImg img{
+    float: left;
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+  }
+  .footer-class{
+    position: relative;
+    top:230px;
+    bottom: 0px;
+    background-color: green;
+    height: 100px;
+  }
+  .reviewMessage{
+    font-family:  Gilroy Heavy,Arial,sans-serif;
+    
+    position: relative;
+    top: 80px;
+  }
+  .msgHeader{
+    
+    font-size: 200%;
+     font-weight: 500;
+    vertical-align: middle;
+    
+
+  }
+  #container6{
+    margin-top: 20px;
+    height: 800px;
+    width: 100%;
+    text-align: center;
+  
+  }
+  .div-head6{
+    position: relative;
+    text-align: center;
+  }
+  .footer-header{
+    font-size: 300%;
+     font-weight: 500;
+
+  }
+  #container1-features{
+    /* Background pattern from Toptal Subtle Patterns */
+    
+    height: 500px;
+    width: 100%;
+    background-image: linear-gradient(to bottom right, #21157e, #dee0d4);
+    box-shadow: 2px 5px 10px rgb(93, 47, 201);
+ }
+  
+ #img111{
+    
+  display: flex;
+  float: right;
+  width: 50%;
+
+}
+ .rounded1{
+   border-radius: 200px;
+   width: 200px;
+   height: 200px;
+ }

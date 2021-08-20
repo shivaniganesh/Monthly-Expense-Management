@@ -7,6 +7,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ResetComponent } from './components/reset/reset.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { AuthGuard } from './services/auth.guard';
+import { BeinspiredComponent } from './components/beinspired/beinspired.component';
+import { AboutusComponent } from './components/aboutus/aboutus.component';
 
 const routes: Routes = [
   {path:"home",component:HomeComponent,pathMatch:"full" },
@@ -18,6 +20,8 @@ const routes: Routes = [
   {path:"navbar",component:NavbarComponent,pathMatch:"full" },
   {path:"registration",component:RegistrationComponent,pathMatch:"full" },
   {path:"resetPassword",component:ResetComponent,pathMatch:"full" },
+  {path:"beinspired",component:BeinspiredComponent,pathMatch:"full" },
+  {path:"aboutus",component:AboutusComponent,pathMatch:"full" },
   
   
 ];
