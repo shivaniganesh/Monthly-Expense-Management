@@ -6,14 +6,14 @@
         <li class="nav-item">
           <a *ngIf="!loggedIn" mat-icon-button class="nav-link toggle active text-light" href="#"> <mat-icon>home</mat-icon></a>
         </li>
-        <button  *ngIf="loggedIn"mat-mini-fab color="primary"   >
+        <button  *ngIf="loggedIn"mat-mini-fab color="primary"  routerLink="/dashboard" >
           <mat-icon>menu</mat-icon>
         </button>
         <li class="nav-item">
-          <a  *ngIf="loggedIn" class="nav-link text-light" routerLink="/">Expenses</a>
+          <a  *ngIf="loggedIn" class="nav-link text-light" routerLink="/expenselist">Expenses</a>
         </li>
         <li class="nav-item">
-          <a  *ngIf="loggedIn"class="nav-link text-light" routerLink="/">Repots</a>
+          <a  *ngIf="loggedIn"class="nav-link text-light" routerLink="/">Reports</a>
         </li>
        
         <li class="nav-item">
@@ -28,7 +28,7 @@
       <form class="d-flex">
 
           <a *ngIf="!loggedIn" (click)="btnClick()" mat-icon-button routerLink="/login">Login</a>
-          <a *ngIf="loggedIn" (click)="openModel()" mat-icon-button routerLink="/userprofile">user</a>
+          <a *ngIf="loggedIn"  mat-icon-button routerLink="/userprofile">user</a>
           <a *ngIf="loggedIn" mat-icon-button (click)="logout()">logout</a>
 
       </form>
@@ -38,41 +38,7 @@
 
 
 <!-- Modal -->
-<div class="container">
-<div class="sidebar" id="sidebar" [ngStyle]="myStyle" style="display:none;position: absolute;top: 0px;bottom: 0px;left: 70%; right: 0px;">
-  <div id=sidebar-top>
-      <div id="sidebar_header">
-         <button  (click)="closeModel()" ><i class="fa fa-arrow-left"></i><h3>Profile</h3></button>
-        </div>
-         
 
-      <div id="sidebar_image">
-          <img src="../assets/images/sujeet.jpg" alt="sujeet image">
-          
-          
-
-      </div>
-      <div class="sidebar_name"><h4>Your name</h4>
-         <input type="text" name="profileanme" id="profilename" value="Sujeet"><button><i class=" fa fa-pencil"></i></button>
-
-      </div>
-      <div class="title">
-          <p>Hi</p>
-
-      </div>
-      <div class="sidebar_name"><h4>About</h4>
-         <input type="text" name="profileanme" id="profilename" value="Where there's a will ,there's a way😊"><button ><i class=" fa fa-pencil"></i></button>
-
-      </div>
-      
-
-
-  </div>   
-     
-     
-     
- </div>
-</div>
 
 
 

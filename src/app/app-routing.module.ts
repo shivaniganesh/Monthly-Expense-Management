@@ -9,11 +9,14 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { AuthGuard } from './services/auth.guard';
 import { BeinspiredComponent } from './components/beinspired/beinspired.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
+import { ExpenselistComponent } from './components/expenselist/expenselist.component';
+import { EditexpenseComponent } from './components/editexpense/editexpense.component';
+import { UserprofileComponent } from './components/userprofile/userprofile.component';
 
 const routes: Routes = [
   {path:"home",component:HomeComponent,pathMatch:"full" },
   {path:"login",component:LoginComponent,pathMatch:"full" },
-  {path:"dashborad",component:DashboardComponent,pathMatch:"full",
+  {path:"dashboard",component:DashboardComponent,pathMatch:"full",
   canActivate:[AuthGuard]
 
 },
@@ -22,11 +25,15 @@ const routes: Routes = [
   {path:"resetPassword",component:ResetComponent,pathMatch:"full" },
   {path:"beinspired",component:BeinspiredComponent,pathMatch:"full" },
   {path:"aboutus",component:AboutusComponent,pathMatch:"full" },
+  {path:"expenselist",component:ExpenselistComponent,pathMatch:"full" },
+  { path: 'editexpense/:expenseId', component: EditexpenseComponent,pathMatch:"full"  },
+  { path: 'userprofile', component: UserprofileComponent,pathMatch:"full"  },
   
   
 ];
 
 @NgModule({
+  
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

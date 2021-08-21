@@ -1,0 +1,88 @@
+<div class="container">
+  <Input type ="button" (click)="displayHide()" value={{btnValue}}>
+</div>
+<div class="container-fluid" *ngIf="!btnClick">
+  
+  <div class="container">
+    <div class="form-row">
+
+    
+        <div class="form-group">
+            <label for="category">Category </label> 
+            <!-- <input type="text" class="form-control" id="category" name="category" [(ngModel)]="expenseData.category" > -->
+            <select class="form-control" name="category" id="category" [(ngModel)]="expenseData.category">
+              <option value=""></option>
+              <option value="EMI">EMI</option>
+              <option value="Rent">Rent</option>
+              <option value="Internet">Internet</option>
+              <option value="Groceries">groceries</option>
+              <option value="Electricity">Electricity</option>
+              <option value="Insurance">Insurance</option>
+              <option value="Other bills">Other bills</option>
+
+          </select><br>
+                
+        </div>
+        <div class="form-group">
+            <label for="expDate">Expense Date </label> 
+            <input type="text" class="form-control"  bsDatepicker [bsConfig]="datePickerConfig" id="expDate" name="date" [(ngModel)]="expenseData.createdDate"  >
+            
+                
+        </div>
+        <div class="form-group">
+            <label for="Amount">Amount </label> 
+            <input type="number" class="form-control" id="Amount" name="lname" [(ngModel)]="expenseData.expenseAmount"  >
+                
+        </div>
+        <div class="form-group">
+            <label for="expenseDescription">Expense Description </label> 
+            <input type="text" class="form-control" id="expenseDescription" name="lname" [(ngModel)]="expenseData.expenseDescription">     
+        </div>
+        
+    </div>
+    <div class="form-group">
+    <button type="submit" (click)="addExpense()"value="addexpense" class="btn btn-primary">Add Expense</button>
+    </div>
+
+   
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="container mt">
+  
+<table class="table table-hover ">
+  <thead class="bg-primary">
+    <tr>
+      <th scope="col">Expense Id</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Category</th>
+      <th scope="col">Description</th>
+      <th scope="col">Date</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let exp of expenses">
+      <td>{{ exp.expenseId }}</td>
+      <td>{{ exp.expenseAmount }}</td>
+      <td>{{ exp.category }}</td>
+      <td>{{ exp.expenseDescription }}</td>
+      <td>{{ exp.createdDate }}</td>
+      
+      <td>
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+          <button type="button"  routerLink="/editexpense/{{ exp.expenseId }}" class="btn btn-success">Edit</button>
+          <button type="button" (click)="deleteExpense(exp.expenseId)" class="btn btn-danger">Delete</button>
+          
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>

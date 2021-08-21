@@ -24,6 +24,7 @@
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "bootstrap": "^5.1.0",
     "jquery": "^3.6.0",
+    "ngx-bootstrap": "^7.0.0",
     "rxjs": "~6.6.0",
     "swiper": "^6.8.2",
     "tslib": "^2.3.0",

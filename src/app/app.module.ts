@@ -24,6 +24,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import {MatListModule} from '@angular/material/list';
 import { BeinspiredComponent } from './components/beinspired/beinspired.component';
+import { ExpenseService } from './services/expense.service';
+import { IncomeService } from './services/income.service';
+import { LoginService } from './services/login.service';
+import { ExpenselistComponent } from './components/expenselist/expenselist.component';
+import { EditexpenseComponent } from './components/editexpense/editexpense.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import { UserprofileComponent } from './components/userprofile/userprofile.component';
+
+
  
 
 
@@ -38,16 +50,22 @@ import { BeinspiredComponent } from './components/beinspired/beinspired.componen
     ResetComponent,
     AboutusComponent,
     
-    BeinspiredComponent
+    BeinspiredComponent,
+         ExpenselistComponent,
+         EditexpenseComponent,
+         UserprofileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,MatButtonModule,MatToolbarModule,
     MatIconModule,MatFormFieldModule,MatMenuModule,MatTableModule,MatInputModule,FormsModule,
-    HttpClientModule, ReactiveFormsModule,NgbModule,MatListModule,
+    HttpClientModule, ReactiveFormsModule,NgbModule,MatListModule,MatSelectModule,MatChipsModule,MatDatepickerModule,
+    BsDatepickerModule,
+    BsDatepickerModule.forRoot(),
+
   ],
-  providers: [],
+  providers: [ExpenseService,IncomeService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

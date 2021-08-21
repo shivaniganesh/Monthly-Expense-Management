@@ -1,4 +1,4 @@
- import { Component, OnInit } from '@angular/core';
+ import { Component, Input, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import { NgForm } from '@angular/forms';
 import { User } from 'src/app/classes/user';
@@ -9,10 +9,13 @@ import { User } from 'src/app/classes/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  
   credentials={
     email:'',
     password:'',
   }
+  @Input()
+  email: any;
   
   message="";
   msg="";
@@ -30,7 +33,10 @@ export class LoginComponent implements OnInit {
           console.log(this.credentials);
           
           localStorage.setItem("token",JSON.stringify(this.credentials));
-          window.location.href="/dashborad";
+
+          this.email=this.credentials.email;
+          localStorage.setItem('credentialEmail',this.email);
+          window.location.href="/dashboard";
         },
         error=>{console.error();
           console.log("Exception Occured");

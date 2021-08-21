@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable,throwError } from 'rxjs';
+
+import { catchError, retry } from 'rxjs/operators';
 import { User } from '../classes/user';
 
 @Injectable({
@@ -11,6 +13,13 @@ export class LoginService {
   url="http://localhost:8080/sprexp/userProfile";
   constructor(private http:HttpClient) { }
   //calling the server to generate token ...it will return obserable
+
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+  };
   
   generateToken(credentials:any){
   return this.http.post(`${this.url}/login`,credentials);
@@ -42,4 +51,31 @@ export class LoginService {
   resetPasswordFromRemote(user:User):Observable<any>{
     return this.http.put(`${this.url}/resetPassword`,user)
   }
+  getUserByEmailId(email:User):Observable<any>{
+    return this.http.get<User>(this.url+'/getUser/'+email).pipe(retry(1), catchError(this.handleError));
+  }
+  editUser(user:User):Observable<User>{
+    return this.http.put<User>(this.url+'/updateUserProfile',user).pipe(retry(1), catchError(this.handleError));
+  
+  }
+  deleteProfile(userId:any):Observable<any>{
+    return this.http.delete<User>(this.url+'/deleteUserProfile/'+userId).pipe(retry(1), catchError(this.handleError));
+  
+  }
+  
+
+  handleError(err:any)
+  { let errorMessage="";
+  if(err.error instanceof ErrorEvent){
+    errorMessage=err.error.message;
+
+  }else {
+    errorMessage=`Error code : ${err.status} \n Error Message :${err.message}`;
+  }
+  window.alert(errorMessage)
+  return throwError(errorMessage);
+  
+
+  }
+  
 }
