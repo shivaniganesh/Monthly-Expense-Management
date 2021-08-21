@@ -8,6 +8,7 @@ import { ResetComponent } from './components/reset/reset.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { AuthGuard } from './services/auth.guard';
 import { ExpenseComponent } from './expense/expense/expense.component';
+import { IncomeComponent } from './income/income.component';
 
 const routes: Routes = [
   {path:"home",component:HomeComponent,pathMatch:"full" },
@@ -20,7 +21,7 @@ const routes: Routes = [
   {path:"registration",component:RegistrationComponent,pathMatch:"full" },
   {path:"resetPassword",component:ResetComponent,pathMatch:"full" },
   {path:"expense",component:ExpenseComponent,pathMatch:"full" },
-  
+  {path:"income",component:IncomeComponent,pathMatch:"full" },
   
 ];
 

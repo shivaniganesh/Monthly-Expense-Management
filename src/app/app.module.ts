@@ -30,6 +30,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { ExpenseComponent } from './expense/expense/expense.component';
 import { ExpenseserviceService } from './services/expenseservice.service';
+import { IncomeComponent } from './income/income.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { ExpenseserviceService } from './services/expenseservice.service';
     RegistrationComponent,
     ResetComponent,
     ExpenseComponent,
-    AboutusComponent
+    AboutusComponent,
+    IncomeComponent
   ],
   imports: [
     BrowserModule,

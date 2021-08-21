@@ -1,0 +1,89 @@
+<div *ngIf="showMePartially">
+    <!-- <ul *ngFor="let inc of income">
+        <li>{{ inc.incomeId }} -- {{ inc.incomeAmount }} --  {{ inc.incomeDescription }}</li> 
+    </ul> -->
+    <div class="container">
+        <div class="card mt-1" style="align-items: center;">
+          <h1>Add Income</h1>
+        </div>
+      
+        <div class="card mt-1" style="padding: 20px;">
+          <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+            <div class="form-group">
+              <label for="incomeAmount">IncomeAmount :</label>
+              <input type="number" #incomeAmount (ngModel)="incomeAmount" name="incomeAmount" id="incomeAmount" class="form-control"
+                placeholder="Income Amount">
+            </div>
+            <div class="form-group">
+                <label for="incomeDescription">IncomeDescription :</label>
+                <input type="text" #incomeDescription (ngModel)="incomeDescription" name="incomeDescription" id="incomeDescription" class="form-control"
+                  placeholder="Description">
+              </div>
+            <div class="form-group">
+              <input type="submit" value="Register" class="btn btn-primary w-100">
+            </div>
+          </form>
+        </div>
+      
+        <div class="mt-5">
+          <table class="table table-bordered text-center">
+            <thead>
+              <tr>
+                <th>Income Id</th> 
+                <th> Amount</th>
+                <th> Description</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              
+           
+              </tr>
+            </thead>
+            <tbody class="tbody">
+              <tr *ngFor="let inc of income">
+                <td>{{inc.incomeId}}</td>
+                <td>{{inc.incomeAmount}}</td>
+                <td>{{inc.incomeDescription}}</td>
+                <td><button type="button" style="width: fit-content; padding: 0px 5px; padding-top: 1px;" class="btn btn-primary" (click)="openModal()"><mat-icon style="font-size: 20px;">edit</mat-icon></button></td>
+            <td><button type="button" style="width: fit-content; padding: 0px 5px; padding-top: 1px;" class="btn btn-danger"><mat-icon style="font-size: 20px;">delete</mat-icon></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+       
+      
+     </div>
+
+</div>
+
+<div class="modal" tabindex="-1" style="background-color: rgba(0, 0, 0, 0.5);" role="dialog" [ngStyle]="{'display':display}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Update Entry</h2>
+        <button type="button" class="btn-close" aria-label="Close" (click)="onCloseHandled()"></button>
+      </div>
+      <div class="modal-body">
+        <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+          <div class="form-group">
+            <label for="incomeAmount">IncomeAmount :</label>
+              <input type="number" #incomeAmount (ngModel)="incomeAmount" name="incomeAmount" id="incomeAmount" class="form-control"
+                placeholder="Income Amount">
+          </div>
+          <div class="form-group">
+            <label for="incomeDescription">IncomeDescription :</label>
+                <input type="text" #incomeDescription (ngModel)="incomeDescription" name="incomeDescription" id="incomeDescription" class="form-control"
+                  placeholder="Description">
+          </div>
+          
+          
+          <!-- <div class="form-group">
+            <input type="submit" value="Update" class="btn btn-primary w-100">
+          </div> -->
+        </form>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" value="Update" class="btn btn-primary w-100">
+      </div>
+    </div>
+  </div>
+</div>
