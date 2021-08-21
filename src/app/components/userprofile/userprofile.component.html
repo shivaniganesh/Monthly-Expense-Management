@@ -44,44 +44,44 @@
             </mat-form-field> -->
           
           
-            <div class="container">
+            <div class="container col-6 mt">
               <div class="form-row">
           
               
                   <div class="form-group">
                       <label for="userId">UserId </label> 
-                      <input type="number" class="form-control" id="userId" name="userId" [(ngModel)]="userData.userId" >
+                      <input type="number" class="form-control" id="userId" name="userId" [(ngModel)]="userData.userId" readonly >
                           
-                  </div>{{userData.userId}}
+                  </div>
                   <div class="form-group">
                       <label for="fname">First Name </label> 
                       <input type="text" class="form-control"  id="fname" name="fname" [(ngModel)]="userData.fname"  >
                       
                           
-                  </div>{{userData.fname}}
+                  </div>
                   <div class="form-group">
                     <label for="lname">Last Name </label> 
                     <input type="text" class="form-control"  id="lname" name="lname" [(ngModel)]="userData.lname"  >
                     
                         
-                </div>{{userData.lname}}
+                </div>
                   <div class="form-group">
                       <label for="email">Email </label> 
                       <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userData.email"  >
                           
-                  </div>{{userData.email}}
+                  </div>
                   <div class="form-group">
                       <label for="password">Password </label> 
                       <input type="text" class="form-control" id="password" name="password" [(ngModel)]="userData.password">     
-                  </div>{{userData.password}}
+                  </div>
                   <div class="form-group">
                     <label for="phoneNumber">Phone Number </label> 
                     <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" [(ngModel)]="userData.phoneNumber">     
-                </div>{{userData.phoneNumber}}
+                </div>
                   
               </div>
               <div class="form-group">
-              <button type="submit" (click)="userProfile()"value="update" class="btn btn-primary">UPDATE Profile</button>
+              <button type="submit" (click)="userProfile()"value="update" class="btn btn-primary">Update Profile</button>
               <button type="submit" (click)="deleteProfile(userData.userId)" value="delete" class="btn btn-danger">Delete Account</button>
               
 

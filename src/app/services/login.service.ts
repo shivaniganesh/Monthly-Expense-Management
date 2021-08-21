@@ -51,8 +51,8 @@ export class LoginService {
   resetPasswordFromRemote(user:User):Observable<any>{
     return this.http.put(`${this.url}/resetPassword`,user)
   }
-  getUserByEmailId(email:User):Observable<any>{
-    return this.http.get<User>(this.url+'/getUser/'+email).pipe(retry(1), catchError(this.handleError));
+  getUserByEmailId(email:any):Observable<any>{
+    return this.http.post(`${this.url}/getUser`,JSON.stringify(email),this.httpOptions).pipe(retry(1), catchError(this.handleError));
   }
   editUser(user:User):Observable<User>{
     return this.http.put<User>(this.url+'/updateUserProfile',user).pipe(retry(1), catchError(this.handleError));

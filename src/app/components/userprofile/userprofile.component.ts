@@ -15,16 +15,20 @@ export class UserprofileComponent implements OnInit {
 
   // userData:any=[];
   
+  email:any=localStorage.getItem('credentialEmail');
+   data= {
+    "email": this.email
+          }
+
+          
   
-  
-   email:any=localStorage.getItem('credentialEmail');
   
   constructor(public aroute:ActivatedRoute,public restApi: LoginService, public router: Router) { }
     
 
   ngOnInit(): void {
       
-      // this.restApi.getUserByEmailId(this.email).subscribe((data: any)=>this.userData=data);
+       this.restApi.getUserByEmailId(this.data).subscribe((data: any)=>this.userData=data);
   }
   
 

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { Expense } from 'src/app/classes/expense';
 import { ExpenseService } from '../../services/expense.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-expenselist',
@@ -25,10 +26,18 @@ export class ExpenselistComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadExpense();
+   
+    $( "#slide" ).click(function() {
+      let btnValue="Add Expense";
+      $( "#box" ).slideToggle(2000);
+    });
+   
   }
   displayHide(){
-    this.btnClick==false?this.btnClick=true :this.btnClick=false;
-    this.btnClick==false?this.btnValue="Hide Expense":this.btnValue="Add Expense";
+    
+    // this.btnClick==false?this.btnClick=true :this.btnClick=false;
+    // this.btnClick==false?this.btnValue="Hide Expense":this.btnValue="Add Expense";
+    
     
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +18,14 @@ public loggedIn=false;
   constructor(private loginService:LoginService) { }
 
   ngOnInit(): void {
-    this.loggedIn=this.loginService.isLoggedIn()
+    this.loggedIn=this.loginService.isLoggedIn();
+    
+
+
+     
+
+    
+
   }
   logout(){
     this.loginService.logout();
@@ -35,5 +43,7 @@ public loggedIn=false;
   openModel(){
     this.myStyle.display="block";
   }
+
+ 
 
 }
