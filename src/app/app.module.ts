@@ -34,6 +34,11 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
+import { IncomeComponent } from './components/income/income.component';
+import { EditincomeComponent } from './components/editincome/editincome.component';
+
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 
 
  
@@ -53,7 +58,10 @@ import { UserprofileComponent } from './components/userprofile/userprofile.compo
     BeinspiredComponent,
          ExpenselistComponent,
          EditexpenseComponent,
-         UserprofileComponent
+         UserprofileComponent,
+         IncomeComponent,
+         EditincomeComponent,
+         
   ],
   imports: [
     BrowserModule,
@@ -61,7 +69,7 @@ import { UserprofileComponent } from './components/userprofile/userprofile.compo
     BrowserAnimationsModule,MatButtonModule,MatToolbarModule,
     MatIconModule,MatFormFieldModule,MatMenuModule,MatTableModule,MatInputModule,FormsModule,
     HttpClientModule, ReactiveFormsModule,NgbModule,MatListModule,MatSelectModule,MatChipsModule,MatDatepickerModule,
-    BsDatepickerModule,
+    BsDatepickerModule,NgxChartsModule,
     BsDatepickerModule.forRoot(),
 
   ],
