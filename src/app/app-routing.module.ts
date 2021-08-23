@@ -12,11 +12,12 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ExpenselistComponent } from './components/expenselist/expenselist.component';
 import { EditexpenseComponent } from './components/editexpense/editexpense.component';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
+import { ExpenseComponent } from './expense/expense/expense.component';
 
 const routes: Routes = [
   {path:"home",component:HomeComponent,pathMatch:"full" },
   {path:"login",component:LoginComponent,pathMatch:"full" },
-  {path:"dashboard",component:DashboardComponent,pathMatch:"full",
+  {path:"app-dashboard",component:DashboardComponent,pathMatch:"full",
   canActivate:[AuthGuard]
 
 },
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path:"expenselist",component:ExpenselistComponent,pathMatch:"full" },
   { path: 'editexpense/:expenseId', component: EditexpenseComponent,pathMatch:"full"  },
   { path: 'userprofile', component: UserprofileComponent,pathMatch:"full"  },
+  {path:"expense",component:ExpenseComponent,pathMatch:"full" },
   
   
 ];

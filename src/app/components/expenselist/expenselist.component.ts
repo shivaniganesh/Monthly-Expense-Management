@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+// import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { Expense } from 'src/app/classes/expense';
 import { ExpenseService } from '../../services/expense.service';
 import * as $ from 'jquery';
@@ -12,7 +12,7 @@ import * as $ from 'jquery';
   styleUrls: ['./expenselist.component.css']
 })
 export class ExpenselistComponent implements OnInit {
-  datePickerConfig:Partial<BsDatepickerConfig> | undefined;
+  // datePickerConfig:Partial<BsDatepickerConfig> | undefined;
   btnClick=true;
   expenseData= new Expense();
   expenses:any=[];
@@ -22,7 +22,7 @@ export class ExpenselistComponent implements OnInit {
     public router: Router,
     public aroute: ActivatedRoute,
     public restApi: ExpenseService
-  ) { this.datePickerConfig=Object.assign({},{containerClass:"theme-dark-blue"},{ dateInputFormat: 'YYYY-MM-DD'}) }
+  ) { }
 
   ngOnInit(): void {
     this.loadExpense();

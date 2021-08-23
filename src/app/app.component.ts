@@ -7,6 +7,7 @@ declare const myFun:any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
   title = 'monthlyexp';
 
 

@@ -1,0 +1,15 @@
+div.modal div.modal-backdrop {
+    z-index: 0;
+}
+
+.mt-5{
+    height:200px;
+    overflow:scroll;
+}
+thead th{
+    position: sticky;
+    top:0;
+    background: whitesmoke;
+    z-index:5;
+}
+

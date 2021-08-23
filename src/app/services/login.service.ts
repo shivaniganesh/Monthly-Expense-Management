@@ -22,7 +22,7 @@ export class LoginService {
   };
   
   generateToken(credentials:any){
-  return this.http.post(`${this.url}/login`,credentials);
+  return this.http.get(`${this.url}/allusers`,credentials);
 }
   
   //to check user is logged in or not
@@ -45,7 +45,7 @@ export class LoginService {
 
   //for registration
    registerUserFromRemote(user:User):Observable<any>{
-     return this.http.post(`${this.url}/addUserProfile`,user)
+     return this.http.post(`${this.url}/adduserprofile`,user)
 
   }
   resetPasswordFromRemote(user:User):Observable<any>{

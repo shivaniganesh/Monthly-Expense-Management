@@ -16,7 +16,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, ɵInternalFormsSharedModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ResetComponent } from './components/reset/reset.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
@@ -32,13 +32,19 @@ import { EditexpenseComponent } from './components/editexpense/editexpense.compo
 import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
 
 
  
 
 
+
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+import { ExpenseComponent } from './expense/expense/expense.component';
+import { ExpenseserviceService } from './services/expenseservice.service';
+import { DashhomeComponent } from './components/dashhome/dashhome.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,19 +59,34 @@ import { UserprofileComponent } from './components/userprofile/userprofile.compo
     BeinspiredComponent,
          ExpenselistComponent,
          EditexpenseComponent,
-         UserprofileComponent
+         UserprofileComponent,
+    ExpenseComponent,
+    AboutusComponent,
+    DashhomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,MatButtonModule,MatToolbarModule,
-    MatIconModule,MatFormFieldModule,MatMenuModule,MatTableModule,MatInputModule,FormsModule,
-    HttpClientModule, ReactiveFormsModule,NgbModule,MatListModule,MatSelectModule,MatChipsModule,MatDatepickerModule,
-    BsDatepickerModule,
-    BsDatepickerModule.forRoot(),
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatMenuModule,
+    MatTableModule,
+    MatInputModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgbModule,MatListModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatSidenavModule,
+    MatDividerModule,
 
   ],
-  providers: [ExpenseService,IncomeService,LoginService],
+  providers: [ExpenseService,ExpenseserviceService,IncomeService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

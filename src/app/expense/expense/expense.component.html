@@ -1,0 +1,118 @@
+<div *ngIf="showMePartially">
+  <!-- <ul *ngFor="let exp of expense"> -->
+    <!-- <li>{{ exp.expenseId }} -- {{ exp.category }} -- {{ exp.createdDate }} -- {{ exp.expenseAmount }} -- {{ exp.expenseDescription }}</li> -->
+  <!-- </ul> -->
+  <div class="container">
+    <div class="card mt-1" style="align-items: center;">
+      <h1>Add Expense</h1>
+    </div>
+
+    <div class="card mt-1" style="padding: 20px;">
+      <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+        <div class="form-group">
+          <label for="category">Category :</label>
+          <input type="text" #category (ngModel)="category" name="category" id="category" class="form-control"
+            placeholder="Category">
+        </div>
+        <div class="form-group">
+          <label for="createdDate">Date :</label>
+          <input type="date" #createdDate (ngModel)="createdDate" name="createdDate" id="createdDate"
+            class="form-control" placeholder="Date of Expense">
+        </div>
+        <div class="form-group">
+          <label for="expenseAmount">Amount :</label>
+          <input type="number" #expenseAmount (ngModel)="expenseAmount" name="expenseAmount" id="expenseAmount"
+            class="form-control" placeholder="Expense Amount">
+        </div>
+        <div class="form-group">
+          <label for="expenseDescription">Description :</label>
+          <input type="text" #expenseDescription (ngModel)="expenseDescription" name="expenseDescription"
+            id="expenseDescription" class="form-control" placeholder="Description">
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Register" class="btn btn-primary w-100">
+        </div>
+      </form>
+    </div>
+
+    <div class="mt-5">
+      <table class="table table-bordered text-center">
+        <thead>
+          <tr>
+            <th>Expense Id</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody class="tbody">
+          <tr *ngFor="let exp of expense">
+            <td>{{exp.expenseId}}</td>
+            <td>{{exp.category}}</td>
+            <td>{{exp.createdDate}}</td>
+            <td>{{exp.expenseAmount | currency:'INR'}}</td>
+            <td>{{exp.expenseDescription}}</td>
+            <!-- <td>{{total}}</td> -->
+            
+            <td><button type="button" style="width: fit-content; padding: 0px 5px; padding-top: 1px;" class="btn btn-primary" (click)="openModal()"><mat-icon style="font-size: 20px;">edit</mat-icon></button></td>
+            <td><button type="button" style="width: fit-content; padding: 0px 5px; padding-top: 1px;" class="btn btn-danger"><mat-icon style="font-size: 20px;">delete</mat-icon></button></td>
+          </tr>
+          <tr>  
+            <td colspan="2"></td>  
+            <td colspan="1"><b>Total:</b> </td>  
+            <td colspan="1"><b>{{ getTotalExp() | currency:'INR'}}</b> </td>  
+            <app-dashhome [totalamount]="totalamount"></app-dashhome>
+            <!-- <input type="text" value="{{ getTotalExp() | currency:'INR'}}" /> -->
+          </tr>  
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  
+  </div>
+
+  <div class="modal" tabindex="-1" style="background-color: rgba(0, 0, 0, 0.5);" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Update Entry</h2>
+          <button type="button" class="btn-close" aria-label="Close" (click)="onCloseHandled()"></button>
+        </div>
+        <div class="modal-body">
+          <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+            <div class="form-group">
+              <label for="category">Category :</label>
+              <input type="text" #category (ngModel)="category" name="category" id="category" class="form-control"
+                placeholder="Category">
+            </div>
+            <div class="form-group">
+              <label for="createdDate">Date :</label>
+              <input type="date" #createdDate (ngModel)="createdDate" name="createdDate" id="createdDate"
+                class="form-control" placeholder="Date of Expense">
+            </div>
+            <div class="form-group">
+              <label for="expenseAmount">Amount :</label>
+              <input type="number" #expenseAmount (ngModel)="expenseAmount" name="expenseAmount" id="expenseAmount"
+                class="form-control" placeholder="Expense Amount">
+            </div>
+            <div class="form-group">
+              <label for="expenseDescription">Description :</label>
+              <input type="text" #expenseDescription (ngModel)="expenseDescription" name="expenseDescription"
+                id="expenseDescription" class="form-control" placeholder="Description">
+            </div>
+            <!-- <div class="form-group">
+              <input type="submit" value="Update" class="btn btn-primary w-100">
+            </div> -->
+          </form>
+        </div>
+        <div class="modal-footer">
+          <input type="submit" value="Update" class="btn btn-primary w-100">
+        </div>
+      </div>
+    </div>
+  </div>
+

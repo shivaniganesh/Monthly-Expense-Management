@@ -36,7 +36,8 @@ export class LoginComponent implements OnInit {
 
           this.email=this.credentials.email;
           localStorage.setItem('credentialEmail',this.email);
-          window.location.href="/dashboard";
+          // window.location.href="/dashboard";
+          window.location.href="/app-dashboard";
         },
         error=>{console.error();
           console.log("Exception Occured");
