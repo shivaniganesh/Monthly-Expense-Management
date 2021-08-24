@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Expense } from 'src/app/classes/expense';
 import { ExpenseserviceService } from 'src/app/services/expenseservice.service';
+import { IncomeService } from 'src/app/services/income.service';
 
 @Component({
   selector: 'app-dashhome',
@@ -11,6 +12,7 @@ import { ExpenseserviceService } from 'src/app/services/expenseservice.service';
 export class DashhomeComponent implements OnInit {
   @Input() totalamount=0;
   @Input() expense: any=[];
+  @Input() income: any=[];
   @Input() showDashHome: boolean | undefined;
 
 //   public data: Object[] = [    
@@ -27,24 +29,34 @@ export class DashhomeComponent implements OnInit {
   
   constructor(public router: Router,
     public aroute: ActivatedRoute,
-    public restApi: ExpenseserviceService) { }
+    public restApi: ExpenseserviceService,public restApi1:IncomeService) { }
   
 
   ngOnInit(): void {
     this.loadExpense();
     this.getTotalExp();
+    this.loadIncome();
+    this.getTotalInc();
     
   }
 
   showexpsummary() {
     this.loadExpense();
     this.getTotalExp();
+    this.loadIncome();
+    this.getTotalInc();
   }
   loadExpense() {
     return this.restApi
       .getExpenses()
       .subscribe((data) => (this.expense = data));
   }
+  loadIncome() {
+    return this.restApi1
+      .getIncomes()
+      .subscribe((data) => (this.income = data));
+  }
+
   getTotalExp() {
     let total = 0;
     for (var i = 0; i < this.expense.length; i++) {
@@ -55,6 +67,18 @@ export class DashhomeComponent implements OnInit {
         }
     }
     return this.totalamount;
+}
+
+getTotalInc() {
+  let total = 0;
+  for (var i = 0; i < this.income.length; i++) {
+      console.log(this.income.length);
+      if (this.income[i].incomeAmount) {
+          total += this.income[i].incomeAmount;
+          this.totalamount = total;
+      }
+  }
+  return this.totalamount;
 }
   
   

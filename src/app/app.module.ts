@@ -49,6 +49,7 @@ import { ExpenseComponent } from './expense/expense/expense.component';
 import { ExpenseserviceService } from './services/expenseservice.service';
 import { DashhomeComponent } from './components/dashhome/dashhome.component';
 import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
+import { IncomeComponent } from './income/income/income.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +67,8 @@ import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
          UserprofileComponent,
     ExpenseComponent,
     AboutusComponent,
-    DashhomeComponent
+    DashhomeComponent,
+    IncomeComponent
   ],
   imports: [
     BrowserModule,

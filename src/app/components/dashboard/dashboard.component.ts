@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
   sidenav!: MatSidenav;
   showVar: boolean = false;
   showDhome: boolean = true;
+  showVar1: boolean = false;
   ngOnInit(): void {
   }
 
@@ -23,10 +24,19 @@ export class DashboardComponent implements OnInit {
     window.location.reload();
     this.showVar = false;
     this.showDhome = true;
+    this.showVar1 = false;
   }
   showExpenseTable() {
     this.showDhome = false;
     this.showVar = true;
+    this.showVar1 = false;
+    
+  }
+
+  showIncomeTable() {
+    this.showDhome = false;
+    this.showVar = false;
+    this.showVar1 = true;
     
   }
   constructor(private observer: BreakpointObserver,public router: Router) {}

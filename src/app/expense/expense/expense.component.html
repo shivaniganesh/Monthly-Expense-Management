@@ -50,15 +50,15 @@
         </thead>
         <tbody class="tbody">
           <tr *ngFor="let exp of expense">
-            <td>{{exp.expenseId}}</td>
-            <td>{{exp.category}}</td>
-            <td>{{exp.createdDate}}</td>
-            <td>{{exp.expenseAmount | currency:'INR'}}</td>
-            <td>{{exp.expenseDescription}}</td>
+            <td class="table-primary">{{exp.expenseId}}</td>
+            <td class="table-secondary">{{exp.category}}</td>
+            <td class="table-success">{{exp.createdDate}}</td>
+            <td class="table-danger">{{exp.expenseAmount | currency:'INR'}}</td>
+            <td class="table-warning">{{exp.expenseDescription}}</td>
             <!-- <td>{{total}}</td> -->
             
-            <td><button type="button" style="width: fit-content; padding: 0px 5px; padding-top: 1px;" class="btn btn-primary" (click)="openModal();edit(exp)"><mat-icon style="font-size: 20px;">edit</mat-icon></button></td>
-            <td><button type="button" style="width: fit-content; padding: 0px 5px; padding-top: 1px;" class="btn btn-danger" (click)="deleteExp(exp.expenseId)"><mat-icon style="font-size: 20px;">delete</mat-icon></button></td>
+            <td class="table-info"><button type="button" style="width: fit-content; padding: 0px 5px; padding-top: 1px;" class="btn btn-primary" (click)="openModal();edit(exp)"><mat-icon style="font-size: 20px;">edit</mat-icon></button></td>
+            <td class="table-info"><button type="button" style="width: fit-content; padding: 0px 5px; padding-top: 1px;" class="btn btn-danger" (click)="deleteExp(exp.expenseId)"><mat-icon style="font-size: 20px;">delete</mat-icon></button></td>
           </tr>
           <tr>  
             <td colspan="2"></td>  

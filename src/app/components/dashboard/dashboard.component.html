@@ -35,7 +35,7 @@
             <span>Transaction</span>
             </div>
                 <mat-menu #menu="matMenu" xPosition="after" class="my-class">
-                    <button mat-menu-item>Income</button>
+                    <button mat-menu-item (click)="showIncomeTable()">Income</button>
                     <button mat-menu-item (click)="showExpenseTable()">Expense</button>
                 </mat-menu>
             
@@ -61,6 +61,8 @@
             </div> -->
             <app-dashhome [showDashHome]="showDhome"></app-dashhome>
             <app-expense [showMePartially]="showVar"></app-expense>
+            <app-income [showMePartially]="showVar1"></app-income>
         </div>
+        
     </mat-sidenav-content>
 </mat-sidenav-container>

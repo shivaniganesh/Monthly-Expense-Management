@@ -13,6 +13,7 @@ import { ExpenselistComponent } from './components/expenselist/expenselist.compo
 import { EditexpenseComponent } from './components/editexpense/editexpense.component';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
 import { ExpenseComponent } from './expense/expense/expense.component';
+import { IncomeComponent } from './income/income/income.component';
 
 const routes: Routes = [
   {path:"home",component:HomeComponent,pathMatch:"full" },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'editexpense/:expenseId', component: EditexpenseComponent,pathMatch:"full"  },
   { path: 'userprofile', component: UserprofileComponent,pathMatch:"full"  },
   {path:"expense",component:ExpenseComponent,pathMatch:"full" },
+  {path:"income",component:IncomeComponent,pathMatch:"full" },
   
   
 ];
