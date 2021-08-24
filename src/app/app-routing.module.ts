@@ -14,6 +14,7 @@ import { EditexpenseComponent } from './components/editexpense/editexpense.compo
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
 import { IncomeComponent } from './components/income/income.component';
 import { EditincomeComponent } from './components/editincome/editincome.component';
+import { ReportsComponent } from './components/reports/reports.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'userprofile', component: UserprofileComponent,pathMatch:"full"  },
   { path: 'income', component: IncomeComponent,pathMatch:"full"  },
   { path: 'editIncome/:incomeId', component:EditincomeComponent,pathMatch:"full"  },
+  { path: 'reports', component:ReportsComponent,pathMatch:"full"  },
   
   
 ];

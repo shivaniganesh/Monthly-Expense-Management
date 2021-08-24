@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { productSales, productSalesMulti } from 'src/app/data/products'
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-reports',
+  templateUrl: './reports.component.html',
+  styleUrls: ['./reports.component.css']
 })
-export class DashboardComponent implements OnInit {
-
+export class ReportsComponent implements OnInit {
   productSales: any[] | undefined
   productSalesMulti: any[] | undefined
 
   view: any[] = [700, 370];
-  
   constructor() { Object.assign(this, { productSales, productSalesMulti }); }
 
   ngOnInit(): void {

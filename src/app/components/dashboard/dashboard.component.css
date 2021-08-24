@@ -1,0 +1,5 @@
+.advanced-pie-legend .legend-items-container .legend-items {
+    overflow:visible,inherit;
+    height: 500px;
+    white-space: nowrap;
+}

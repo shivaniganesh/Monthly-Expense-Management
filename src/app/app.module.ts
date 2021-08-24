@@ -22,22 +22,21 @@ import { ResetComponent } from './components/reset/reset.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import {MatListModule} from '@angular/material/list';
+
 import { BeinspiredComponent } from './components/beinspired/beinspired.component';
 import { ExpenseService } from './services/expense.service';
 import { IncomeService } from './services/income.service';
 import { LoginService } from './services/login.service';
 import { ExpenselistComponent } from './components/expenselist/expenselist.component';
 import { EditexpenseComponent } from './components/editexpense/editexpense.component';
-import {MatSelectModule} from '@angular/material/select';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
 import { IncomeComponent } from './components/income/income.component';
 import { EditincomeComponent } from './components/editincome/editincome.component';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ReportsComponent } from './components/reports/reports.component';
 
 
 
@@ -61,6 +60,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
          UserprofileComponent,
          IncomeComponent,
          EditincomeComponent,
+         ReportsComponent,
          
   ],
   imports: [
@@ -68,7 +68,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     AppRoutingModule,
     BrowserAnimationsModule,MatButtonModule,MatToolbarModule,
     MatIconModule,MatFormFieldModule,MatMenuModule,MatTableModule,MatInputModule,FormsModule,
-    HttpClientModule, ReactiveFormsModule,NgbModule,MatListModule,MatSelectModule,MatChipsModule,MatDatepickerModule,
+    HttpClientModule, ReactiveFormsModule,NgbModule,
     BsDatepickerModule,NgxChartsModule,
     BsDatepickerModule.forRoot(),
 

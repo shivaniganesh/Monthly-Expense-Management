@@ -1,1 +1,20 @@
-<h1>Dashboard</h1>
+<table>
+    <tr>
+
+        <td>
+            <ngx-charts-gauge [view]="view" [scheme]="colorScheme" [results]="productSales" [legend]="legend"
+                [legendPosition]="legendPosition" (select)="onSelect($event)" (activate)="onActivate($event)"
+                (deactivate)="onDeactivate($event)">
+            </ngx-charts-gauge>
+        </td>
+    </tr>
+
+    <tr>
+
+        <td>
+            <ngx-charts-pie-grid [results]="productSales" [view]="view" [scheme]="colorScheme"
+                (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+            </ngx-charts-pie-grid>
+        </td>
+    </tr>
+</table>

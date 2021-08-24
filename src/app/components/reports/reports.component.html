@@ -1,0 +1,111 @@
+<table>
+    <tr>
+        <td>Bar chart</td>
+        <td>
+            <ngx-charts-bar-vertical [results]="productSales" [view]="view" [scheme]="colorScheme"
+                [schemeType]="schemeType" [gradient]="gradient" [xAxis]="xAxis" [yAxis]="yAxis" [legend]="legend"
+                [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+                [yAxisLabel]="xAxisLabel" [legendTitle]="legendTitle" [legendPosition]="legendPosition"
+                [animations]="animations" [showGridLines]="showGridLines" [trimXAxisTicks]="trimXAxisTicks"
+                [trimYAxisTicks]="trimYAxisTicks" [rotateXAxisTicks]="rotateXAxisTicks"
+                [maxXAxisTickLength]="maxXAxisTickLength" [maxYAxisTickLength]="maxYAxisTickLength"
+                [xAxisTickFormatting]="formatString" [yAxisTickFormatting]="formatNumber" [yAxisTicks]="yAxisTicks"
+                [showDataLabel]="showDataLabel" [barPadding]="barPadding" [tooltipDisabled]="tooltipDisabled"
+                [roundEdges]="roundEdges">
+            </ngx-charts-bar-vertical>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>Gauge chart</td>
+        <td>
+            <ngx-charts-gauge [view]="view" [scheme]="colorScheme" [results]="productSales" [legend]="legend"
+                [legendPosition]="legendPosition" (select)="onSelect($event)" (activate)="onActivate($event)"
+                (deactivate)="onDeactivate($event)">
+            </ngx-charts-gauge>
+        </td>
+    </tr>
+
+    <tr>
+        <td>pie-chart</td>
+        <td>
+            <ngx-charts-pie-chart [results]="productSales" [view]="view" [scheme]="colorScheme" [gradient]="gradient" [legend]="true" [legendPosition]="legendPosition" [labels]="showLabels" [doughnut]="isDoughnut" (select)="onSelect($event)" (activate)="onActivate($event)"
+                (deactivate)="onDeactivate($event)">
+            </ngx-charts-pie-chart>
+        </td>
+    </tr>
+    <tr>
+        <td>charts-pie-grid</td>
+        <td>
+            <ngx-charts-pie-grid [results]="productSales" [view]="view" [scheme]="colorScheme"
+                (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+            </ngx-charts-pie-grid>
+        </td>
+    </tr>
+    <tr>
+        <td>advanced-pie-chart</td>
+        <td>
+            <ngx-charts-advanced-pie-chart [results]="productSales" [view]="view" [scheme]="colorScheme"
+                [gradient]="gradient" (select)="onSelect($event)" (activate)="onActivate($event)"
+                (deactivate)="onDeactivate($event)">
+            </ngx-charts-advanced-pie-chart>
+        </td>
+    </tr>
+    <!-- <tr><td>charts-tree-map</td>
+        <td>
+            <ngx-charts-tree-map [view]="view" [scheme]="colorScheme" [results]="productSales" [gradient]="gradient" [animations]="animations" [labelFormatting]="labelFormatting" (select)="onSelect($event)">
+            </ngx-charts-tree-map>
+        </td>
+    </tr> -->
+
+
+    <tr>
+        <td>line-chart</td>
+        <td>
+            <ngx-charts-line-chart [results]="productSalesMulti" [view]="view" [scheme]="colorScheme" [legend]="legend"
+                [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis" [yAxis]="yAxis"
+                [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [timeline]="timeline">
+            </ngx-charts-line-chart>
+        </td>
+    </tr>
+    <tr>
+        <td>area-chart</td>
+        <td>
+            <ngx-charts-area-chart [results]="productSalesMulti" [view]="view" [scheme]="colorScheme" [legend]="legend"
+                [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis" [yAxis]="yAxis"
+                [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [timeline]="timeline">
+            </ngx-charts-area-chart>
+        </td>
+    </tr>
+    <tr>
+        <td>area-chart-stacked</td>
+        <td>
+            <ngx-charts-area-chart-stacked [results]="productSalesMulti" [view]="view" [scheme]="colorScheme"
+                [legend]="legend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis"
+                [yAxis]="yAxis" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [timeline]="timeline">
+            </ngx-charts-area-chart-stacked>
+        </td>
+    </tr>
+    <tr>
+        <td>area-chart-normalized</td>
+        <td>
+            <ngx-charts-area-chart-normalized [results]="productSalesMulti" [view]="view" [scheme]="colorScheme"
+                [legend]="legend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis"
+                [yAxis]="yAxis" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [timeline]="timeline">
+            </ngx-charts-area-chart-normalized>
+        </td>
+    </tr>
+    <!-- <tr>
+        <td>heat-map</td>
+        <td>
+            <ngx-charts-heat-map [results]="productSalesMulti" [view]="view" [scheme]="colorScheme" [legend]="legend"
+                [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis" [yAxis]="yAxis"
+                [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" (select)="onSelect($event)"
+                (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+            </ngx-charts-heat-map>
+        </td>
+    </tr> -->
+
+
+</table>
