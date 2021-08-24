@@ -17,6 +17,7 @@ export class ExpenseComponent implements OnInit {
   expenseData: any = {};
 
   expenseToUpdate = {
+    expenseId: "",
     category: "",
     createdDate: "",
     expenseAmount: "",
@@ -64,7 +65,7 @@ export class ExpenseComponent implements OnInit {
   updateExp() {
     if (window.confirm('Are you sure , you want to update?')) {
       this.restApi.updateExpense(this.expenseToUpdate).subscribe((data: {}) => {
-        this.loadExpense();
+        this.ngOnInit();
       });
 
     }
@@ -76,6 +77,7 @@ export class ExpenseComponent implements OnInit {
   }
   onCloseHandled() {
     this.display = "none";
+    this.ngOnInit();
   }
 
   getTotalExp() {

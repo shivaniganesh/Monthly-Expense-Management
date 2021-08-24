@@ -49,6 +49,7 @@ import { ExpenseComponent } from './expense/expense/expense.component';
 import { ExpenseserviceService } from './services/expenseservice.service';
 import { DashhomeComponent } from './components/dashhome/dashhome.component';
 import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
+import { LoadingspinnerComponent } from './components/loadingspinner/loadingspinner.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +67,8 @@ import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
          UserprofileComponent,
     ExpenseComponent,
     AboutusComponent,
-    DashhomeComponent
+    DashhomeComponent,
+    LoadingspinnerComponent
   ],
   imports: [
     BrowserModule,

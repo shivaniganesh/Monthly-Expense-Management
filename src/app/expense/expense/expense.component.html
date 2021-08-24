@@ -85,6 +85,10 @@
         <div class="modal-body">
           <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
             <div class="form-group">
+              <label for="expenseId">Expense Id :</label>
+              <input type="text" disabled #expenseId [(ngModel)]="expenseToUpdate.expenseId" name="expenseId" id="expenseId" class="form-control">
+            </div>
+            <div class="form-group">
               <label for="category">Category :</label>
               <input type="text" #category [(ngModel)]="expenseToUpdate.category" name="category" id="category" class="form-control"
                 placeholder="Category">
@@ -110,7 +114,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <input type="submit" value="Update" (click)="updateExp();onCloseHandled();" class="btn btn-primary w-100">
+          <input type="submit" value="Update" (click)="onCloseHandled();updateExp();" class="btn btn-primary w-100">
         </div>
       </div>
     </div>
