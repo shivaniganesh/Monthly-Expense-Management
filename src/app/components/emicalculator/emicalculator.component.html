@@ -1,0 +1,25 @@
+<div class="container mt">
+    <div id="emiCalc">
+        <h1 style="color: green; font-family: Chiller;">EMI Calculator</h1>
+        
+        <table>
+            
+                    <tr>
+                        <td>Amount you need &#8377; <input type="text" id="Amount" oninput="amtSlider.value=this.value" value="1000000" ></td>
+                        <td>for <input type="text"  id="year" value="5" oninput="yearSlider.value=this.value"> years</td>
+                        <td>Interest rate <input type="text"id="rate" oninput="rateSlider.value=this.value" value="10"> %</td>
+                    </tr>
+               <tr>
+                        <td>&#8377;100000<input type="range" id="amtSlider" min="100000" max="100000000" oninput="Amount.value=this.value"> &#8377;100000000</td>
+                        <td> 1 Years<input type="range" id="yearSlider" min="1" max="30" oninput="year.value=this.value"> 30 years</td>
+                        <td>5 % <input type="range" id="rateSlider" min="10" max="15" oninput="rate.value=this.value"> 15 %</td>
+                </tr>
+                
+        </table>
+        <input type="button" value="Calculate" id="calc" >
+        
+        
+        <p id="span" style="display: none;text-align: center;">Your Monthly EMI will be &#8377; <span id="result" style="display: inline;"></span></p>
+        <!-- <h6 style="color: green; font-family: 'Tangerine', cursive;">Designed by sujeet on 4th july2021</h6> -->
+    </div> 
+</div>

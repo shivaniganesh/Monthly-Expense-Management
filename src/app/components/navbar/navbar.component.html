@@ -18,6 +18,13 @@
         <li class="nav-item">
           <a  *ngIf="loggedIn"class="nav-link text-light" routerLink="/reports">Reports</a>
         </li>
+        <li class="nav-item">
+          <a  *ngIf="loggedIn"class="nav-link text-light" routerLink="/emi">EMI calc</a>
+        </li>
+        <li class="nav-item">
+          <a  *ngIf="loggedIn"class="nav-link text-light" routerLink="/calculator">Calculator</a>
+        </li>
+        
        
         <li class="nav-item">
           <a *ngIf="!loggedIn" (click)="btnClick()" class="nav-link text-light" routerLink="/beinspired">Be Inspired</a>

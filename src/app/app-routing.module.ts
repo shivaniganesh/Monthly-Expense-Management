@@ -15,6 +15,8 @@ import { UserprofileComponent } from './components/userprofile/userprofile.compo
 import { IncomeComponent } from './components/income/income.component';
 import { EditincomeComponent } from './components/editincome/editincome.component';
 import { ReportsComponent } from './components/reports/reports.component';
+import { EmicalculatorComponent } from './components/emicalculator/emicalculator.component';
+import { BasicCalculatorComponent } from './components/basic-calculator/basic-calculator.component';
 
 
 const routes: Routes = [
@@ -36,6 +38,8 @@ const routes: Routes = [
   { path: 'income', component: IncomeComponent,pathMatch:"full"  },
   { path: 'editIncome/:incomeId', component:EditincomeComponent,pathMatch:"full"  },
   { path: 'reports', component:ReportsComponent,pathMatch:"full"  },
+  { path: 'emi', component:EmicalculatorComponent,pathMatch:"full"  },
+  { path: 'calculator',component: BasicCalculatorComponent,pathMatch:"full"  },
   
   
 ];

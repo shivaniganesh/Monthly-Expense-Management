@@ -1,0 +1,45 @@
+#emiCalc{
+    text-align: center;
+    width: 60%;
+    box-shadow: 1px 2px  3px black;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: 17%;
+    margin: 20px;
+    padding: 20px 10px;
+}
+input[type="text"]{
+    width: 25%;
+    border-radius: 25px;
+    box-shadow: 1px 2px gray;
+    text-align: center;
+}
+input[type="text"]:focus{
+    background-color: pink;
+    transform: scale(1.5);
+    outline: none;
+    
+}
+input:enabled{
+    background-color: rgb(131 221 99);
+}
+input[type="button"]{
+    width: 35%;
+    height:30px;
+    border-radius: 15px 20px;
+    position: relative;
+    left: 30%;
+    margin: 20px;
+    
+}
+input[type="button"]:focus{
+    transform: scale(1.25);
+}
+input[type="range"]{
+    cursor: pointer;
+}
+#calc:hover{
+transform:scale(1.5);
+}

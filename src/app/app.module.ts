@@ -37,6 +37,8 @@ import { EditincomeComponent } from './components/editincome/editincome.componen
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ReportsComponent } from './components/reports/reports.component';
+import { EmicalculatorComponent } from './components/emicalculator/emicalculator.component';
+import { BasicCalculatorComponent } from './components/basic-calculator/basic-calculator.component';
 
 
 
@@ -61,6 +63,8 @@ import { ReportsComponent } from './components/reports/reports.component';
          IncomeComponent,
          EditincomeComponent,
          ReportsComponent,
+         EmicalculatorComponent,
+         BasicCalculatorComponent,
          
   ],
   imports: [

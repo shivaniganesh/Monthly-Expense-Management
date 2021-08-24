@@ -29,6 +29,7 @@ export class UserprofileComponent implements OnInit {
   ngOnInit(): void {
       
        this.restApi.getUserByEmailId(this.data).subscribe((data: any)=>this.userData=data);
+       
   }
   
 
@@ -39,6 +40,7 @@ export class UserprofileComponent implements OnInit {
         this.msg="Update Sucessful!!";
         this.router.navigate(['/dashboard']);
         console.log(this.userData);
+        
         
       },
       error=>{
