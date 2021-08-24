@@ -8,6 +8,7 @@ import { IExpense } from '../IExpense';
   providedIn: 'root'
 })
 export class ExpenseserviceService {
+  [x: string]: any;
   private resturl: string = 'http://localhost:8080/sprexp/expense';
   constructor(private http: HttpClient) { }
 
@@ -26,7 +27,7 @@ export class ExpenseserviceService {
     return this.http.post<IExpense>(this.resturl+'/addexpense',JSON.stringify(expense), this.httpOptions)
     .pipe(retry(1), catchError(this.handleError));
   }
-  updateEmployee(expense: any): Observable<IExpense> {
+  updateExpense(expense: any): Observable<IExpense> {
     return this.http
       .put<IExpense>(
         this.resturl + '/updateexpense',
@@ -35,7 +36,7 @@ export class ExpenseserviceService {
       )
       .pipe(retry(1), catchError(this.handleError));
   }
-  deleteEmployee(expenseId: any): Observable<IExpense> {
+  deleteExpense(expenseId: any): Observable<IExpense> {
     return this.http
       .delete<IExpense>(this.resturl + '/deleteExpense/' + expenseId, this.httpOptions)
       .pipe(retry(1), catchError(this.handleError));

@@ -1,6 +1,7 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
 import { delay } from 'rxjs/operators';
 
 @Component({
@@ -18,6 +19,7 @@ export class DashboardComponent implements OnInit {
   }
 
   showDashHomePg() {
+    
     window.location.reload();
     this.showVar = false;
     this.showDhome = true;
@@ -25,8 +27,9 @@ export class DashboardComponent implements OnInit {
   showExpenseTable() {
     this.showDhome = false;
     this.showVar = true;
+    
   }
-  constructor(private observer: BreakpointObserver) {}
+  constructor(private observer: BreakpointObserver,public router: Router) {}
 
   ngAfterViewInit() {
     this.observer

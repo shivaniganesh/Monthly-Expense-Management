@@ -14,6 +14,15 @@ export class ExpenseComponent implements OnInit {
   expense: any=[];
   display = "none";
   totalamount = 0;
+  expenseData: any = {};
+
+  expenseToUpdate = {
+    category: "",
+    createdDate: "",
+    expenseAmount: "",
+    expenseDescription: "",
+  };
+
   @Input() showMePartially: boolean | undefined;
   constructor(public router: Router,
     public aroute: ActivatedRoute,
@@ -40,6 +49,28 @@ export class ExpenseComponent implements OnInit {
       }
     );
   }
+
+  deleteExp(expid: any) {
+    if (window.confirm('Are you sure , you want to delete?')) {
+    this.restApi.deleteExpense(expid).subscribe((data) => {
+      this.loadExpense();
+    }
+    );
+  }
+}
+  edit(exp: any) {
+    this.expenseToUpdate = exp;
+  }
+  updateExp() {
+    if (window.confirm('Are you sure , you want to update?')) {
+      this.restApi.updateExpense(this.expenseToUpdate).subscribe((data: {}) => {
+        this.loadExpense();
+      });
+
+    }
+  }
+  
+
   openModal() {
     this.display = "block";
   }

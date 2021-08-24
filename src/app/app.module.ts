@@ -35,6 +35,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
 
+import { AccumulationChartModule } from '@syncfusion/ej2-angular-charts';
+import { PieSeriesService} from '@syncfusion/ej2-angular-charts';
+
 
  
 
@@ -45,6 +48,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { ExpenseComponent } from './expense/expense/expense.component';
 import { ExpenseserviceService } from './services/expenseservice.service';
 import { DashhomeComponent } from './components/dashhome/dashhome.component';
+import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,9 +88,12 @@ import { DashhomeComponent } from './components/dashhome/dashhome.component';
     MatDatepickerModule,
     MatSidenavModule,
     MatDividerModule,
+    ChartsModule,
+    WavesModule,
+    AccumulationChartModule
 
   ],
-  providers: [ExpenseService,ExpenseserviceService,IncomeService,LoginService],
+  providers: [ExpenseService,ExpenseserviceService,IncomeService,LoginService,PieSeriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
