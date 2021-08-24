@@ -29,7 +29,7 @@ export class ExpenselistComponent implements OnInit {
    
     $( "#slide" ).click(function() {
       let btnValue="Add Expense";
-      $( "#box" ).slideToggle(2000);
+      $( "#box" ).slideToggle(1000);
     });
    
   }

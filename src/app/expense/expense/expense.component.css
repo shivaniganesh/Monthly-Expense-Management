@@ -1,7 +1,29 @@
 div.modal div.modal-backdrop {
     z-index: 0;
 }
+.modal {
+  
+    
+    /* Probably need media queries here */
 
+    max-width: 100%;
+    
+
+    max-height: 100%;
+    
+    position: fixed;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+    
+    left: 50%;
+    top: 50%;
+    
+    /* Use this for centering if unknown width/height */
+    transform: translate(-50%, -50%);
+}
+  
+
+  
 .mt-5{
     height:200px;
     overflow:scroll;

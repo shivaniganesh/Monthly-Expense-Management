@@ -22,7 +22,7 @@ export class LoginService {
   };
   
   generateToken(credentials:any){
-  return this.http.get(`${this.url}/allusers`,credentials);
+  return this.http.post(`${this.url}/login`,credentials);
 }
   
   //to check user is logged in or not

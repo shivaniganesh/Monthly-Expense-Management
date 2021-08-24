@@ -34,6 +34,11 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
+import { IncomeComponent } from './components/income/income.component';
+import { EditincomeComponent } from './components/editincome/editincome.component';
+
+// import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 
 import { AccumulationChartModule } from '@syncfusion/ej2-angular-charts';
 import { PieSeriesService} from '@syncfusion/ej2-angular-charts';
@@ -50,6 +55,9 @@ import { ExpenseserviceService } from './services/expenseservice.service';
 import { DashhomeComponent } from './components/dashhome/dashhome.component';
 import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
 import { LoadingspinnerComponent } from './components/loadingspinner/loadingspinner.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,13 +70,16 @@ import { LoadingspinnerComponent } from './components/loadingspinner/loadingspin
     AboutusComponent,
     
     BeinspiredComponent,
-         ExpenselistComponent,
-         EditexpenseComponent,
-         UserprofileComponent,
+    ExpenselistComponent,
+    EditexpenseComponent,
+    UserprofileComponent,
     ExpenseComponent,
     AboutusComponent,
     DashhomeComponent,
-    LoadingspinnerComponent
+    LoadingspinnerComponent,
+    IncomeComponent,
+    EditincomeComponent,
+         
   ],
   imports: [
     BrowserModule,
@@ -92,7 +103,13 @@ import { LoadingspinnerComponent } from './components/loadingspinner/loadingspin
     MatDividerModule,
     ChartsModule,
     WavesModule,
-    AccumulationChartModule
+    AccumulationChartModule,
+    // BsDatepickerModule,
+    // NgxChartsModule,
+    // BsDatepickerModule.forRoot(),
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
+    NgxPaginationModule
 
   ],
   providers: [ExpenseService,ExpenseserviceService,IncomeService,LoginService,PieSeriesService],

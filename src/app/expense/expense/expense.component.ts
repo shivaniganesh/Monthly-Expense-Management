@@ -12,6 +12,7 @@ import { ExpenseserviceService } from 'src/app/services/expenseservice.service';
 })
 export class ExpenseComponent implements OnInit {
   expense: any=[];
+  displayAdd = "none";
   display = "none";
   totalamount = 0;
   expenseData: any = {};
@@ -75,11 +76,19 @@ export class ExpenseComponent implements OnInit {
   openModal() {
     this.display = "block";
   }
+
+  openModalAdd() {
+    this.displayAdd = "block";
+  }
   onCloseHandled() {
     this.display = "none";
     this.ngOnInit();
   }
 
+  onCloseHandledAdd() {
+    this.displayAdd = "none";
+    this.ngOnInit();
+  }
   getTotalExp() {
     let total = 0;
     for (var i = 0; i < this.expense.length; i++) {
