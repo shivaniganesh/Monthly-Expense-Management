@@ -22,6 +22,10 @@ export class IncomeService {
     return this.http.get<Income[]>(this.url+'/allIncomes').pipe(retry(1), catchError(this.handleError));
     
   }
+  getSelectedIncomeFromService(id):Observable<Income[]>{
+    return this.http.get<Income[]>(this.url+'/selectedincomes/'+id).pipe(retry(1), catchError(this.handleError));
+    
+  }
   addIncomeFromRemote(income:Income):Observable<any>{
     return this.http.post(`${this.url}/addIncome`,income)
 

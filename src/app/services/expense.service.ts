@@ -23,8 +23,12 @@ export class ExpenseService {
     return this.http.get<Expense[]>(this.url+'/allexpenses').pipe(retry(1), catchError(this.handleError));
     
   }
+  getSelectedExpenseFromService(id:any):Observable<Expense[]>{
+    return this.http.get<Expense[]>(this.url+'/selectedexpenses/'+id).pipe(retry(1), catchError(this.handleError));
+    
+  }
   addExpenseFromRemote(expense:Expense):Observable<any>{
-    return this.http.post(`${this.url}/addUserProfile`,expense)
+    return this.http.post(`${this.url}/addexpense`,expense)
 
  }
  getExpense(expId:Expense):Observable<any>{

@@ -5,7 +5,9 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { Expense } from 'src/app/classes/expense';
 import { ExpenseService } from '../../services/expense.service';
 import * as $ from 'jquery';
+import { LoginService } from 'src/app/services/login.service';
 
+declare const date:any;
 @Component({
   selector: 'app-expenselist',
   templateUrl: './expenselist.component.html',
@@ -16,63 +18,68 @@ export class ExpenselistComponent implements OnInit {
   btnClick=true;
   expenseData= new Expense();
   expenses:any=[];
+  userData:any=[];
   btnValue="Add Expense";
+  userId=localStorage.getItem("userId");
 
   constructor(
     public router: Router,
     public aroute: ActivatedRoute,
-    public restApi: ExpenseService
+    public restApi: ExpenseService, public loginService:LoginService
   ) { this.datePickerConfig=Object.assign({},{containerClass:"theme-dark-blue"},{ dateInputFormat: 'YYYY-MM-DD'}) }
 
+  email:any=localStorage.getItem('credentialEmail');
+  data= {
+   "email": this.email
+         }
   ngOnInit(): void {
-    this.loadExpense();
+
+
+      this.loginService.getUserByEmailId(this.data).subscribe((data: any)=>{this.userData=data;
+        //console.log(this.userData.userId);
+        this.expenseData.user=this.userData;
+       // console.log(this.expenseData.user);
+       //this.userId=this.userData.userId;
+      //  console.log("for user id :"+this.userId);
+
+      });
+    
+    
    
     $( "#slide" ).click(function() {
       let btnValue="Add Expense";
       $( "#box" ).slideToggle(1000);
+      
     });
-   
+    this.loadExpense();
   }
-  displayHide(){
+  // displayHide(){
     
-    // this.btnClick==false?this.btnClick=true :this.btnClick=false;
-    // this.btnClick==false?this.btnValue="Hide Expense":this.btnValue="Add Expense";
+  //    this.btnClick==false?this.btnClick=true :this.btnClick=false;
+  //    this.btnClick==false?this.btnValue="Hide Expense":this.btnValue="Add Expense";
     
     
-  }
+  // }
 
   loadExpense() {
-    return this.restApi.getExpenseFromService().subscribe((data) => (this.expenses = data));
+    return this.restApi.getSelectedExpenseFromService(this.userId).subscribe((data) =>{ (this.expenses = data)
+    
+    
+    } );
   }
   deleteExpense(id :any) {
     return this.restApi.deleteExpense(id).subscribe((data) => {
       this.loadExpense();
     });
   }
-  display = "none";
-  @Input() 
-  modal: boolean | undefined;
-  register(registerForm: NgForm) {
-    this.restApi.createExpense(registerForm.value).subscribe(
-      (resp) => {
-        console.log(resp);
-        registerForm.reset();
-        this.loadExpense();
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }
-  openModal() {
-    this.display = "block";
-  }
-  onCloseHandled() {
-    this.display = "none";
-  }
+  
+
+
   addExpense(){
     this.restApi.createExpense(this.expenseData).subscribe(data=>{
-      window.location.reload();
+      console.log(this.expenseData);
+      this.loadExpense();
+      
     
     })
   }

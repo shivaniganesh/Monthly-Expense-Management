@@ -28,7 +28,10 @@ export class UserprofileComponent implements OnInit {
 
   ngOnInit(): void {
       
-       this.restApi.getUserByEmailId(this.data).subscribe((data: any)=>this.userData=data);
+       this.restApi.getUserByEmailId(this.data).subscribe((data: any)=>{this.userData=data;
+        console.log(this.userData);
+      });
+       
        
   }
   
@@ -38,8 +41,9 @@ export class UserprofileComponent implements OnInit {
       res=>{
         console.log("Response received");
         this.msg="Update Sucessful!!";
+        //console.log(this.userData);
         this.router.navigate(['/dashboard']);
-        console.log(this.userData);
+        
         
         
       },

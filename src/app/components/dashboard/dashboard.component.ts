@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { productSales, productSalesMulti } from 'src/app/data/products'
+import { LoginService } from '../../services/login.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -11,12 +12,21 @@ export class DashboardComponent implements OnInit {
   productSalesMulti: any[] | undefined
 
   view: any[] = [700, 370];
-  
-  constructor() { Object.assign(this, { productSales, productSalesMulti }); }
+  userData:any=[];
+  constructor(public loginService:LoginService) { Object.assign(this, { productSales, productSalesMulti }); }
 
+  email:any=localStorage.getItem('credentialEmail');
+  data= {
+   "email": this.email
+         }
   ngOnInit(): void {
-  }
 
+
+      this.loginService.getUserByEmailId(this.data).subscribe((data: any)=>{this.userData=data;
+        console.log( "from dashboard"+this.userData);
+        localStorage.setItem('userId',this.userData.userId);
+      });
+    }
 
   // options
   legendTitle: string = 'Products';

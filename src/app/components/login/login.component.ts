@@ -17,11 +17,13 @@ export class LoginComponent implements OnInit {
   @Input()
   email: any;
   
+  
   message="";
   msg="";
   constructor(private loginService:LoginService) { }
 
   ngOnInit(): void {
+    
   }
   onSubmit(){
     console.log("form submitted sucessfully");
@@ -36,7 +38,10 @@ export class LoginComponent implements OnInit {
 
           this.email=this.credentials.email;
           localStorage.setItem('credentialEmail',this.email);
+          
+          
           window.location.href="/dashboard";
+
         },
         error=>{console.error();
           console.log("Exception Occured");
@@ -50,6 +55,7 @@ export class LoginComponent implements OnInit {
       
     }
   }
+  
 
 
 }
