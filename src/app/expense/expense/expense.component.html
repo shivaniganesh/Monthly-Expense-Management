@@ -35,7 +35,10 @@
       </form>
     </div>
 
+    <div class="container text-center">
+    </div>
     <div class="mt-5">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching ">  
       <table class="table table-bordered text-center">
         <thead>
           <tr>
@@ -49,7 +52,7 @@
           </tr>
         </thead>
         <tbody class="tbody">
-          <tr *ngFor="let exp of expense">
+          <tr *ngFor="let exp of expense |filter:searchText">
             <td class="table-primary">{{exp.expenseId}}</td>
             <td class="table-secondary">{{exp.category}}</td>
             <td class="table-success">{{exp.createdDate}}</td>

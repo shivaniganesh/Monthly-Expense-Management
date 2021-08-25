@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Expense } from 'src/app/classes/expense';
 import { ExpenseserviceService } from 'src/app/services/expenseservice.service';
-
+import { ChartsModule } from 'ng2-charts';
 @Component({
   selector: 'app-expense',
   templateUrl: './expense.component.html',
@@ -22,7 +22,7 @@ export class ExpenseComponent implements OnInit {
     expenseAmount: "",
     expenseDescription: "",
   };
-
+  searchText:any;
   @Input() showMePartially: boolean | undefined;
   constructor(public router: Router,
     public aroute: ActivatedRoute,

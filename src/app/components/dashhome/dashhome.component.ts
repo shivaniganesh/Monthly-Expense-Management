@@ -3,7 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Expense } from 'src/app/classes/expense';
 import { ExpenseserviceService } from 'src/app/services/expenseservice.service';
 import { IncomeService } from 'src/app/services/income.service';
-
+import { Label } from 'ng2-charts';
+import { ChartOptions,ChartType,ChartDataSets } from 'chart.js';
 @Component({
   selector: 'app-dashhome',
   templateUrl: './dashhome.component.html',
@@ -25,6 +26,17 @@ export class DashhomeComponent implements OnInit {
 //     { x: 'ITA', text: 'Italy', y: 2131  },
 //     { x: 'IND', text: 'India', y: 1857  },   
 // ];
+barChartOptions: ChartOptions = {
+  responsive: true,
+};
+barChartLabels: Label[] = ['Apple', 'Banana', 'Kiwifruit', 'Blueberry', 'Orange', 'Grapes'];
+barChartType: ChartType = 'bar';
+barChartLegend = true;
+barChartPlugins = [];
+
+barChartData: ChartDataSets[] = [
+  { data: [45, 37, 60, 70, 46, 33], label: 'Best Fruits' }
+];
 
   
   constructor(public router: Router,

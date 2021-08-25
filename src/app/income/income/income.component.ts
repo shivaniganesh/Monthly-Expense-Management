@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IncomeService } from 'src/app/services/income.service';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 @Component({
   selector: 'app-income',
   templateUrl: './income.component.html',
@@ -19,6 +19,7 @@ export class IncomeComponent implements OnInit {
     incomeAmount: "",
     incomeDescription: "",
   };
+  searchTxt:any;
 
   @Input() showMePartially: boolean | undefined;
   constructor(public router: Router,

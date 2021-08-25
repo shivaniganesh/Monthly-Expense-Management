@@ -26,12 +26,14 @@
         </form>
       </div>
   
+      <div class="container text-center">
+      </div>
       <div class="mt-5">
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchTxt" autocomplete="off" placeholder="&#61442;  Start searching ">
         <table class="table table-bordered text-center">
           <thead>
             <tr>
-              <th>Income Id</th>
-              
+              <th>Income Id</th> 
               <th>Amount</th>
               <th>Description</th>
               <th>Edit</th>
@@ -39,7 +41,7 @@
             </tr>
           </thead>
           <tbody class="tbody">
-            <tr *ngFor="let inc of income">
+            <tr *ngFor="let inc of income | filter:searchTxt">
               <td class="table-primary">{{inc.incomeId}}</td>
               
               <td class="table-danger">{{inc.incomeAmount | currency:'INR'}}</td>

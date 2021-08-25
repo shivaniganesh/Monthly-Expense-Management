@@ -48,8 +48,11 @@ import { MatDividerModule } from '@angular/material/divider';
 import { ExpenseComponent } from './expense/expense/expense.component';
 import { ExpenseserviceService } from './services/expenseservice.service';
 import { DashhomeComponent } from './components/dashhome/dashhome.component';
-import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
+import {  WavesModule } from 'angular-bootstrap-md';
 import { IncomeComponent } from './income/income/income.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ChartsModule } from 'ng2-charts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +71,9 @@ import { IncomeComponent } from './income/income/income.component';
     ExpenseComponent,
     AboutusComponent,
     DashhomeComponent,
-    IncomeComponent
+    IncomeComponent,
+   
+    
   ],
   imports: [
     BrowserModule,
@@ -92,7 +97,9 @@ import { IncomeComponent } from './income/income/income.component';
     MatDividerModule,
     ChartsModule,
     WavesModule,
-    AccumulationChartModule
+    AccumulationChartModule,
+    Ng2SearchPipeModule,
+    ChartsModule,
 
   ],
   providers: [ExpenseService,ExpenseserviceService,IncomeService,LoginService,PieSeriesService],
