@@ -1,22 +1,16 @@
-<!-- <nav class="navbar">
-  <input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by category" title="Type in a Category">
-
-</nav> -->
 <div *ngIf="showMePartially">
-  <!-- <ul *ngFor="let exp of expense"> -->
-  <!-- <li>{{ exp.expenseId }} -- {{ exp.category }} -- {{ exp.createdDate }} -- {{ exp.expenseAmount }} -- {{ exp.expenseDescription }}</li> -->
-  <!-- </ul> -->
+
   <div class="div-inline" style="display: inline; position: relative;">
-  <nav class="navbar">
-    <button type="button" (click)="openModalAdd()" class="btn btn-primary">Add Expense</button>
-    <input class="form-control" type="text" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;   Start searching " style="width: 80%;" onkeyup="myFunction()" placeholder="Search" title="">
-  
-  </nav>
+    <nav class="navbar">
+      <button type="button" (click)="openModalAdd()" class="btn btn-primary">Add Expense</button>
+      <input class="form-control" type="text" [(ngModel)]="searchText" autocomplete="off"
+        placeholder="&#61442;   Start searching " style="width: 80%;" onkeyup="myFunction()" placeholder="Search"
+        title="">
+    </nav>
   </div>
 
   <div class="table-wrapper-scroll-y my-custom-scrollbar" style="overflow-x:550px;">
-    
-    
+
     <table id="myTable" class="table table-bordered text-center">
       <thead>
         <tr>
@@ -26,7 +20,6 @@
           <th>Amount</th>
           <th>Description</th>
           <th colspan="2">Action</th>
-          
         </tr>
       </thead>
       <tbody class="tbody">
@@ -36,55 +29,24 @@
           <td>{{exp.createdDate}}</td>
           <td>{{exp.expenseAmount | currency:'INR'}}</td>
           <td>{{exp.expenseDescription}}</td>
-          <!-- <td>{{total}}</td> -->
 
           <td><button type="button" style="width: fit-content; padding: 0px 5px; padding-top: 1px;"
               class="btn btn-primary" (click)="openModal();edit(exp)">
               <mat-icon style="font-size: 20px;">edit</mat-icon>
             </button></td>
+
           <td><button type="button" style="width: fit-content; padding: 0px 5px; padding-top: 1px;"
               class="btn btn-danger" (click)="deleteExp(exp.expenseId)">
               <mat-icon style="font-size: 20px;">delete</mat-icon>
             </button></td>
         </tr>
         <tr>
-          <!-- <td colspan="2"></td> -->
-          <!-- <td colspan="1"><b>Total:</b> </td> -->
-          <!-- <td colspan="1"><b>{{ getTotalExp() | currency:'INR'}}</b> </td> -->
-          <!-- <app-dashhome [totalamount]="totalamount"></app-dashhome> -->
-          <!-- <input type="text" value="{{ getTotalExp() | currency:'INR'}}" /> -->
         </tr>
       </tbody>
     </table>
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
-
-
 
 
 <div class="modal" tabindex="-1" style="background-color: rgba(0, 0, 0, 0.671);" role="dialog"
@@ -95,54 +57,54 @@
         <h2 class="modal-title">Add Entry</h2>
         <button type="button" class="btn-close" aria-label="Close" (click)="onCloseHandledAdd()"></button>
       </div>
+
       <div class="modal-body">
-        <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+
+        <form #addExpenseForm="ngForm" (ngSubmit)="addExpense()">
           <div class="form-group">
             <label for="category">Category :
-            <input list="categories" #category (ngModel)="category" style="width: 465px;" name="category" id="category" class="form-control"
-              placeholder="Category"></label>
-                <datalist id="categories"><input>
-                  <option value=""></option>
-                <option value="EMI">EMI</option>
-                <option value="Rent">Rent</option>
-                <option value="Internet">Internet</option>
-                <option value="Groceries">groceries</option>
-                <option value="Electricity">Electricity</option>
-                <option value="Insurance">Insurance</option>
-                <option value="Other bills">Other bills</option>
-                </datalist>
-              
+              <input list="categories" #category="ngModel" [(ngModel)]="expenseData.category" style="width: 465px;"
+                name="category" id="category" class="form-control" placeholder="Category"></label>
+            <datalist id="categories"><input>
+              <option value=""></option>
+              <option value="EMI">EMI</option>
+              <option value="Rent">Rent</option>
+              <option value="Internet">Internet</option>
+              <option value="Groceries">groceries</option>
+              <option value="Electricity">Electricity</option>
+              <option value="Insurance">Insurance</option>
+              <option value="Other bills">Other bills</option>
+            </datalist>
           </div>
           <div class="form-group">
-            <label for="createdDate">Date :</label>
-            <input type="date" #createdDate (ngModel)="createdDate" name="createdDate" id="createdDate"
-              class="form-control" placeholder="Date of Expense">
+            <label for="expDate">Date :</label>
+            <input type="date" class="form-control" id="expDate" min="{{minDate}}" name="date"
+              [(ngModel)]="expenseData.createdDate" required #date="ngModel"
+              [class.is-invalid]="date.invalid && date.touched">
+            <small class="text-danger" [class.d-none]="date.valid || date.untouched">Date is required field</small>
           </div>
           <div class="form-group">
-            <label for="expenseAmount">Amount :</label>
-            <input type="number" min="1" #expenseAmount (ngModel)="expenseAmount" name="expenseAmount" id="expenseAmount"
-              class="form-control" placeholder="Expense Amount">
+            <label for="Amount">Amount :</label>
+            <input type="number" class="form-control" id="Amount" name="lname" [(ngModel)]="expenseData.expenseAmount"
+              required #amount="ngModel" [class.is-invalid]="amount.invalid && amount.touched"
+              placeholder="Expense Amount"><small class="text-danger"
+              [class.d-none]="amount.valid || amount.untouched">Amount is required field</small>
           </div>
           <div class="form-group">
-            <label for="expenseDescription">Description :</label>
-            <input type="text" #expenseDescription (ngModel)="expenseDescription" name="expenseDescription"
-              id="expenseDescription" class="form-control" placeholder="Description">
+            <label for="expenseDescription">Expense Description </label>
+            <input type="text" class="form-control" id="expenseDescription" name="lname" required
+              [(ngModel)]="expenseData.expenseDescription" placeholder="Description">
           </div>
-
-
         </form>
+
       </div>
       <div class="modal-footer">
-        <input type="submit" value="Register" (click)="onCloseHandledAdd(); register(registerForm)" class="btn btn-primary w-100">
+        <input type="submit" value="Add Expense" (click)="onCloseHandledAdd(); addExpense()"
+          class="btn btn-primary w-100">
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
 
 
 <div class="modal" tabindex="-1" style="background-color: rgba(0, 0, 0, 0.671);" role="dialog"
@@ -180,10 +142,8 @@
             <input type="text" #expenseDescription [(ngModel)]="expenseToUpdate.expenseDescription"
               name="expenseDescription" id="expenseDescription" class="form-control" placeholder="Description">
           </div>
-          <!-- <div class="form-group">
-              <input type="submit" value="Update" class="btn btn-primary w-100">
-            </div> -->
         </form>
+
       </div>
       <div class="modal-footer">
         <input type="submit" value="Update" (click)="onCloseHandled();updateExp();" class="btn btn-primary w-100">

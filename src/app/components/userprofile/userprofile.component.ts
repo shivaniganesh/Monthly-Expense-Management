@@ -12,6 +12,7 @@ export class UserprofileComponent implements OnInit {
   msg="";
   userData=new User();
   user=new User();
+  display = "none";
 
   // userData:any=[];
   
@@ -51,10 +52,24 @@ export class UserprofileComponent implements OnInit {
       }
     )
 }
+updateUser() {
+  if (window.confirm('Are you sure , you want to update?')) {
+    this.restApi.editUser(this.user).subscribe((data: {}) => {
+      this.ngOnInit();
+    });
 
+  }
+}
+openModal() {
+  this.display = "block";
+}
+onCloseHandled() {
+  this.display = "none";
+  this.ngOnInit();
+}
 deleteProfile(userId: any) {
   return this.restApi.deleteProfile(userId).subscribe((data) => {
-    window.alert("Your Account is deleted Successfully")
+    window.confirm("Do you want to Delete this account?")
     localStorage.removeItem('token');
     window.location.reload();
   });

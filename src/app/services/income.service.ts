@@ -10,6 +10,7 @@ import { IIncome } from '../IIncome';
 })
 export class IncomeService {
   [x: string]: any;
+  
   private resturl: string = 'http://localhost:8080/sprexp/income';
   constructor(private http: HttpClient) { }
 
@@ -19,6 +20,10 @@ export class IncomeService {
     }),
   };
 
+  getSelectedIncomeFromService(id: any):Observable<Income[]>{
+    return this.http.get<Income[]>(this.url+'/selectedincomes/'+id).pipe(retry(1), catchError(this.handleError));
+    
+  }
   getIncomes(): Observable<IIncome[]> {
     return this.http
       .get<IIncome[]>(this.resturl + '/allIncomes')

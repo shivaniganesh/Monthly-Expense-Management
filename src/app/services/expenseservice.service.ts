@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { Expense } from '../classes/expense';
 import { IExpense } from '../IExpense';
 
 @Injectable({
@@ -17,7 +18,10 @@ export class ExpenseserviceService {
       'Content-Type': 'application/json',
     }),
   };
-
+  getSelectedExpenseFromService(id:any):Observable<Expense[]>{
+    return this.http.get<Expense[]>(this.resturl+'/selectedexpenses/'+id).pipe(retry(1), catchError(this.handleError));
+    
+  }
   getExpenses(): Observable<IExpense[]> {
     return this.http
       .get<IExpense[]>(this.resturl + '/allexpenses')

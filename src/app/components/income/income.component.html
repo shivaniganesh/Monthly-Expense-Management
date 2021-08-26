@@ -1,34 +1,22 @@
-<!-- <nav class="navbar">
-  <input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by category" title="Type in a Category">
-
-</nav> -->
 <div *ngIf="showMePartially1">
-  <!-- <ul *ngFor="let exp of expense"> -->
-  <!-- <li>{{ exp.expenseId }} -- {{ exp.category }} -- {{ exp.createdDate }} -- {{ exp.expenseAmount }} -- {{ exp.expenseDescription }}</li> -->
-  <!-- </ul> -->
+
   <div class="div-inline" style="display: inline; position: relative;">
     <nav class="navbar">
       <button type="button" (click)="openModalAdd()" class="btn btn-primary">Add Income</button>
-      <input class="form-control" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;   Start searching " type="text" id="myInput" style="width: 80%;" onkeyup="myFunction()"
-        placeholder="Search" title="">
-
+      <input class="form-control" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;   Start searching "
+        type="text" id="myInput" style="width: 80%;" onkeyup="myFunction()" placeholder="Search" title="">
     </nav>
   </div>
 
   <div class="table-wrapper-scroll-y my-custom-scrollbar" style="overflow-x:550px;">
 
-
     <table id="myTable" class="table table-bordered text-center">
       <thead>
         <tr>
           <th>Income Id</th>
-
-          
           <th>Description</th>
           <th>Amount</th>
           <th colspan="2">Action</th>
-
-
         </tr>
       </thead>
       <tbody class="tbody">
@@ -36,56 +24,25 @@
           <td>{{inc.incomeId}}</td>
           <td>{{inc.incomeDescription}}</td>
           <td>{{inc.incomeAmount | currency:'INR'}}</td>
-          
-          <!-- <td>{{total}}</td> -->
 
           <td><button type="button" style="width: fit-content; padding: 0px 5px; padding-top: 1px;"
               class="btn btn-primary" (click)="openModal();edit(inc)">
               <mat-icon style="font-size: 20px;">edit</mat-icon>
             </button></td>
+
           <td><button type="button" style="width: fit-content; padding: 0px 5px; padding-top: 1px;"
               class="btn btn-danger" (click)="deleteInc(inc.incomeId)">
               <mat-icon style="font-size: 20px;">delete</mat-icon>
             </button></td>
+
         </tr>
         <tr>
-
-          <!-- <td colspan="1"><b>Total:</b> </td> -->
-          <!-- <td colspan="1"><b>{{ getTotalInc() | currency:'INR'}}</b> </td> -->
-          <!-- <app-dashhome [totalamount]="totalamountinc"></app-dashhome> -->
-          <!-- <input type="text" value="{{ getTotalExp() | currency:'INR'}}" /> -->
         </tr>
       </tbody>
     </table>
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
-
-
 
 
 <div class="modal" tabindex="-1" style="background-color: rgba(0, 0, 0, 0.671);" role="dialog"
@@ -97,36 +54,34 @@
         <button type="button" class="btn-close" aria-label="Close" (click)="onCloseHandledAdd()"></button>
       </div>
       <div class="modal-body">
-        <form #registerForm="ngForm">
+        <form #addIncomeForm="ngForm">
 
           <div class="form-group">
-            <label for="incomeDescription">Description :</label>
-            <input type="text" #incomeDescription (ngModel)="incomeDescription" name="incomeDescription"
-              id="incomeDescription" class="form-control" placeholder="Description">
+            <label for="incomeDescription">Income Description </label>
+            <input type="text" class="form-control" id="incomeDescription" name="incomeDescription"
+              [(ngModel)]="incomeData.incomeDescription" required #description="ngModel"
+              [class.is-invalid]="description.invalid && description.touched" placeholder="Income Description">
+            <small class="text-danger" [class.d-none]="description.valid || description.untouched">Income description is
+              required field</small>
           </div>
           <div class="form-group">
-            <label for="incomeAmount">Amount :</label>
-            <input type="number" #incomeAmount (ngModel)="incomeAmount" name="incomeAmount" id="incomeAmount"
-              class="form-control" placeholder="Income Amount">
+            <label for="Amount">Amount </label>
+            <input type="number" class="form-control" id="Amount" name="Amount" [(ngModel)]="incomeData.incomeAmount"
+              #amount="ngModel" required [class.is-invalid]="amount.invalid && amount.touched"
+              placeholder="Income Amount">
+            <small class="text-danger" [class.d-none]="amount.valid || amount.untouched">Amount is required
+              field</small>
           </div>
-          
+
           <div class="form-group">
-            <input type="submit" value="Register" (click)="onCloseHandledAdd();register(registerForm)"
+            <input type="submit" value="Add Income" (click)="onCloseHandledAdd();addIncome()"
               class="btn btn-primary w-100">
           </div>
         </form>
       </div>
-      <!-- <div class="modal-footer">
-        <input type="submit" value="Register" (click)="onCloseHandledAdd(); register(registerForm)" class="btn btn-primary w-100">
-      </div> -->
     </div>
   </div>
 </div>
-
-
-
-
-
 
 
 <div class="modal" tabindex="-1" style="background-color: rgba(0, 0, 0, 0.671);" role="dialog"
@@ -138,13 +93,13 @@
         <button type="button" class="btn-close" aria-label="Close" (click)="onCloseHandled()"></button>
       </div>
       <div class="modal-body">
-        <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+        <form #registerForm="ngForm" (ngSubmit)="updateInc()">
           <div class="form-group">
             <label for="incomeId">Income Id :</label>
             <input disabled type="number" #incomeId [(ngModel)]="incomeToUpdate.incomeId" name="incomeId" id="incomeId"
               class="form-control">
           </div>
-          
+
           <div class="form-group">
             <label for="incomeDescription">Description :</label>
             <input type="text" #incomeDescription [(ngModel)]="incomeToUpdate.incomeDescription"
@@ -155,9 +110,6 @@
             <input type="number" #incomeAmount [(ngModel)]="incomeToUpdate.incomeAmount" name="incomeAmount"
               id="incomeAmount" class="form-control" placeholder="Income Amount">
           </div>
-          <!-- <div class="form-group">
-                <input type="submit" value="Update" class="btn btn-primary w-100">
-              </div> -->
         </form>
       </div>
       <div class="modal-footer">

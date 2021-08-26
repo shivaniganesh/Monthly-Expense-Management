@@ -16,7 +16,7 @@
         <img class="avatar mat-elevation-z8"
             src="https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=925&q=80" />
 
-        <h4 class="name">Shivani Ganesh</h4>
+        <h4 class="name">{{fname}} {{lname}}</h4>
         <p class="designation"></p>
 
         <mat-divider></mat-divider>
@@ -25,22 +25,20 @@
             <mat-icon>dashboard</mat-icon>
             <span>Dashboard</span>
         </button>
-        <button mat-button class="menu-button">
+        <button mat-button class="menu-button" [routerLink]="['/userprofile']">
             <mat-icon>person</mat-icon>
             <span>Profile</span>
         </button>
         <button mat-button class="menu-button">
             <div style="padding-right: 10px;" [matMenuTriggerFor]="menu">
-            <mat-icon>info</mat-icon>
-            <span>Transaction</span>
+                <mat-icon>info</mat-icon>
+                <span>Transaction</span>
             </div>
-                <mat-menu #menu="matMenu" xPosition="after" class="my-class">
-                    <button mat-menu-item (click)="showIncomeTable()">Income</button>
-                    <button mat-menu-item (click)="showExpenseTable()">Expense</button>
-                </mat-menu>
-            
+            <mat-menu #menu="matMenu" xPosition="after" class="my-class">
+                <button mat-menu-item (click)="showIncomeTable()">Income</button>
+                <button mat-menu-item (click)="showExpenseTable()">Expense</button>
+            </mat-menu>
         </button>
-
 
         <mat-divider></mat-divider>
 
@@ -52,16 +50,11 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <div class="content mat-elevation-z8">
-            <!-- <div id="maincontent">
-                <div contenteditable="false" id="one" style="resize:vertical;overflow:auto;border:1px solid darkgray;padding:10px;background-color:#FFFFFF;"></div>
-                <div class="flex-container">
-                    <div class="flex-child" contenteditable="false" id="two" style="resize:both;overflow:auto;border:1px solid darkgray;padding:10px;background-color:#FFFFFF;"></div>
-                    <div class="flex-child" contenteditable="false" id="three" style="resize:both;overflow:auto;border:1px solid darkgray;padding:10px;background-color:#FFFFFF;"></div>
-                </div>
-            </div> -->
+
             <app-dashhome [showDashHome]="showDhome"></app-dashhome>
             <app-expense [showMePartially]="showVar"></app-expense>
             <app-income [showMePartially1]="showVar1"></app-income>
+
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

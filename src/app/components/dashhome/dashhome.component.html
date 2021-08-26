@@ -1,222 +1,53 @@
 <div *ngIf="showDashHome">
-    
 
-
-
-    <!-- <div class="row">
-        <div class="col-xs-6 col-xl-3 col-lg-3 col-md-3 col-sm-6 card-container">
-            <div class="card">
-                <div class="card-body income-card">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-xl-3">
+                <div class="card bg-c-green order-card">
                     <div class="card-block">
-                        <div class="media">
-                            <div class="media-body text-xs-left float-right">
-                                <h3 class="card-value" id="tolincome">{{ getTotalInc() | currency:'INR'}}</h3>
-                                <span class="card-text">Income</span>
-                            </div>
-                        </div>
+
+                        <h1 class="text-right"><span>{{ getTotalInc() | currency:'INR'}}</span></h1>
+                        <p class="m-b-0">Income</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-xs-6 col-xl-3 col-lg-3 col-md-3 col-sm-6 card-container">
-            <div class="card">
-                <div class="card-body expense-card">
+
+            <div class="col-md-4 col-xl-3">
+                <div class="card bg-c-yellow order-card">
                     <div class="card-block">
-                        <div class="media">
-                            <div class="media-body text-xs-left float-right">
-                                <h3 class="card-value" id='tolexpense'>{{ getTotalExp() | currency:'INR'}}</h3>
-                                <span class="card-text">Expenses</span>
-                            </div>
-                        </div>
+
+                        <h1 class="text-right"><span>{{ getTotalExp() | currency:'INR'}}</span></h1>
+                        <p class="m-b-0">Expense</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-xs-6 col-xl-3 col-lg-3 col-md-3 col-sm-6 card-container">
-            <div class="card">
-                <div class="card-body balance">
-                    <div class="card-block">
-                        <div class="media">
-                            <div class="media-body text-xs-left float-right">
-                                <h3 class="card-value" id="tolbalance">{{getTotalInc()-getTotalExp() | currency:'INR'}}</h3>
-                                <span class="card-text">Balance</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="col-xs-6 col-xl-3 col-lg-3 col-md-3 col-sm-6 card-container">
-            <div class="card">
-                <div class="card-body transaction">
-                    <div class="card-block">
-                        <div class="media">
-                            <div class="media-body text-xs-left float-right">
-                                <h3 class="card-value" id="toltransaction"></h3>
-                                <span class="card-text">Transactions</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
 
-
-
-
-
-
-
-
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-xl-3">
-                    <div class="card bg-c-green order-card">
+            <div class="col-md-4 col-xl-3">
+                <div
+                    [ngClass]="{'bg-c-red': (getTotalInc()-getTotalExp()) < 0, 'bg-c-blue':(getTotalInc()-getTotalExp()) >= 0}">
+                    <div class="card order-card">
                         <div class="card-block">
-                            
-                            <h1 class="text-right"><span>{{ getTotalInc() | currency:'INR'}}</span></h1>
-                            <p class="m-b-0">Income</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 col-xl-3">
-                    <div class="card bg-c-yellow order-card">
-                        <div class="card-block">
-                            
-                            <h1 class="text-right"><span>{{ getTotalExp() | currency:'INR'}}</span></h1>
-                            <p class="m-b-0">Expense</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 col-xl-3">
-                    <div class="card bg-c-blue order-card">
-                        <div class="card-block">
-                            
+
                             <h1 class="text-right"><span>{{ getTotalInc()-getTotalExp() | currency:'INR'}}</span></h1>
-                            <p class="m-b-0">Balance</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-xl-3">
-                    <div class="card bg-c-red order-card">
-                        <div class="card-block">
-                            
-                            <h1 class="text-right"><span>{{getTotalInc()-getTotalExp() | currency:'INR'}}</span></h1>
-                            <p class="m-b-0">Balance</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 col-xl-3">
-                    <div class="card bg-c-pink order-card">
-                        <div class="card-block">
-                            
-                            <h1 class="text-right"><span>{{expense.length + income.length}}</span></h1>
-                            <p class="m-b-0">Transactions</p>
+                            <p
+                                [ngClass]="{'mbb1': (getTotalInc()-getTotalExp()) >= 0, 'mbb':(getTotalInc()-getTotalExp()) < 0}">
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+            <div class="col-md-4 col-xl-3">
+                <div class="card bg-c-violet order-card">
+                    <div class="card-block">
+
+                        <h1 class="text-right"><span>{{expense.length + income.length}}</span></h1>
+                        <p class="m-b-0">Transactions</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-
-
-
-
-
     </div>
 
-
-
-
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <ejs-accumulationchart id="chart-container">
-        <e-accumulation-series-collection>
-            <e-accumulation-series [dataSource]='data' innerRadius = "30%" outerRadius = "40%" xName='x' yName='y' type='Pie'></e-accumulation-series>
-        </e-accumulation-series-collection>
-      </ejs-accumulationchart> -->
-
-      <!-- <div style="display: block">
-        <canvas baseChart
-                height="200"
-                [data]="pieChartData"
-                [labels]="pieChartLabels"
-                [chartType]="pieChartType"
-                (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)"
-                [options]="options"></canvas>
-      </div> -->
-
-    
-
-
-      
-
-<!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-
-<table id="myTable">
-  <tr class="header">
-    <th style="width:60%;">Name</th>
-    <th style="width:40%;">Country</th>
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Berglunds snabbkop</td>
-    <td>Sweden</td>
-  </tr>
-  <tr>
-    <td>Island Trading</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Koniglich Essen</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Laughing Bacchus Winecellars</td>
-    <td>Canada</td>
-  </tr>
-  <tr>
-    <td>Magazzini Alimentari Riuniti</td>
-    <td>Italy</td>
-  </tr>
-  <tr>
-    <td>North/South</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Paris specialites</td>
-    <td>France</td>
-  </tr>
-</table> -->
-
-
-
+</div>

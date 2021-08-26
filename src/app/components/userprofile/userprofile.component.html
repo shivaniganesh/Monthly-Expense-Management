@@ -1,6 +1,4 @@
-
-
-        <!-- <mat-form-field appearance="fill">
+<!-- <mat-form-field appearance="fill">
             <mat-label>Input</mat-label>
             <input matInput type="number">
           </mat-form-field>
@@ -24,9 +22,9 @@
             <mat-label>Phone Number</mat-label>
             <input matInput type="number">
           </mat-form-field> -->
-          
-          
-          <!-- <mat-form-field appearance="fill">
+
+
+<!-- <mat-form-field appearance="fill">
               <mat-label>Amount</mat-label>
               <input  matInput type="number" >
               
@@ -42,57 +40,106 @@
               <mat-label>Textarea</mat-label>
               <textarea matInput></textarea>
             </mat-form-field> -->
-          
-          
-            <div class="container col-6 mt">
-              <div class="form-row">
-          
-              
-                  <div class="form-group">
-                      <label for="userId">UserId </label> 
-                      <input type="number" class="form-control" id="userId" name="userId" [(ngModel)]="userData.userId" readonly >
-                          
-                  </div>
-                  <div class="form-group">
-                      <label for="fname">First Name </label> 
-                      <input type="text" class="form-control"  id="fname" name="fname" [(ngModel)]="userData.fname"  >
-                      
-                          
-                  </div>
-                  <div class="form-group">
-                    <label for="lname">Last Name </label> 
-                    <input type="text" class="form-control"  id="lname" name="lname" [(ngModel)]="userData.lname"  >
-                    
-                        
-                </div>
-                  <div class="form-group">
-                      <label for="email">Email </label> 
-                      <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userData.email"  >
-                          
-                  </div>
-                  <div class="form-group">
-                      <label for="password">Password </label> 
-                      <input type="text" class="form-control" id="password" name="password" [(ngModel)]="userData.password">     
-                  </div>
-                  <div class="form-group">
-                    <label for="phoneNumber">Phone Number </label> 
-                    <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" [(ngModel)]="userData.phoneNumber">     
-                </div>
-                  
-              </div>
-              <div class="form-group">
-              <button type="submit" (click)="userProfile()"value="update" class="btn btn-primary">Update Profile</button>
-              <button type="submit" (click)="deleteProfile(userData.userId)" value="delete" class="btn btn-danger">Delete Account</button>
-              
 
-              </div>
-          
-             
-          
+
+<div class="container col-6 mt">
+  <div class="form-row">
+
+
+    <div class="form-group">
+      <label for="userId">UserId </label>
+      <input type="number" class="form-control" id="userId" name="userId" [(ngModel)]="userData.userId" readonly>
+
+    </div>
+    <div class="form-group">
+      <label for="fname">First Name </label>
+      <input type="text" class="form-control" id="fname" name="fname" [(ngModel)]="userData.fname">
+
+
+    </div>
+    <div class="form-group">
+      <label for="lname">Last Name </label>
+      <input type="text" class="form-control" id="lname" name="lname" [(ngModel)]="userData.lname">
+
+
+    </div>
+    <div class="form-group">
+      <label for="email">Email </label>
+      <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userData.email">
+
+    </div>
+    <div class="form-group">
+      <label for="password">Password </label>
+      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="userData.password">
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number </label>
+      <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" [(ngModel)]="userData.phoneNumber">
+    </div>
+
+  </div>
+  <div class="form-group">
+    <!-- <button type="submit" (click)="openModal()" value="update" class="btn btn-primary">Update Profile</button> -->
+    <button type="submit" (click)="deleteProfile(userData.userId)" value="delete" class="btn btn-danger">Delete
+      Account</button>
+
+
+  </div>
+
+
+
+</div>
+
+<!-- <div class="modal" tabindex="-1" style="background-color: rgba(0, 0, 0, 0.671);" role="dialog"
+  [ngStyle]="{'display':display}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Update Entry</h2>
+        <button type="button" class="btn-close" aria-label="Close" (click)="onCloseHandled()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container col-6 mt">
+          <div class="form-row">
+        
+        
+            <div class="form-group">
+              <label for="userId">UserId </label>
+              <input type="number" disabled class="form-control" id="userId" name="userId" [(ngModel)]="userData.userId" readonly>
+        
+            </div>
+            <div class="form-group">
+              <label for="fname">First Name </label>
+              <input type="text" class="form-control" id="fname" name="fname" [(ngModel)]="userData.fname">
+        
+        
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name </label>
+              <input type="text" class="form-control" id="lname" name="lname" [(ngModel)]="userData.lname">
+        
+        
+            </div>
+            <div class="form-group">
+              <label for="email">Email </label>
+              <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userData.email">
+        
+            </div>
+            <div class="form-group">
+              <label for="password">Password </label>
+              <input type="password" class="form-control" id="password" name="password" [(ngModel)]="userData.password">
+            </div>
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number </label>
+              <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" [(ngModel)]="userData.phoneNumber">
+            </div>
+        
           </div>
           
-
-        
-          
-            
-  
+      </div>
+      <div class="modal-footer">
+        <input type="submit" value="Update" (click)="onCloseHandled();updateUser();" class="btn btn-primary w-100">
+      </div>
+    </div>
+  </div>
+</div> -->
