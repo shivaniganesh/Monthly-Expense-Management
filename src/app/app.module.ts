@@ -53,11 +53,14 @@ import { MatDividerModule } from '@angular/material/divider';
 import { ExpenseComponent } from './expense/expense/expense.component';
 import { ExpenseserviceService } from './services/expenseservice.service';
 import { DashhomeComponent } from './components/dashhome/dashhome.component';
-import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
+// import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
 import { LoadingspinnerComponent } from './components/loadingspinner/loadingspinner.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
+
+import { ChartsModule } from 'ng2-charts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -102,7 +105,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatSidenavModule,
     MatDividerModule,
     ChartsModule,
-    WavesModule,
+    // WavesModule,
     AccumulationChartModule,
     // BsDatepickerModule,
     // NgxChartsModule,

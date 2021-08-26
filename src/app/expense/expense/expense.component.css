@@ -26,7 +26,8 @@ div.modal div.modal-backdrop {
   
 .mt-5{
     height:200px;
-    overflow:scroll;
+    /* overflow:scroll; */
+    
 }
 thead th{
     position: sticky;
@@ -34,4 +35,47 @@ thead th{
     background: whitesmoke;
     z-index:5;
 }
+.my-custom-scrollbar {
+    position: relative;
+    height: 400px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }
 
+    .table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 1em;
+        font-family: sans-serif;
+        min-width: 400px;
+        border-radius: 10px;
+        /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); */
+    }
+    .table thead tr {
+       
+        color: black;
+        text-align: center;
+    }
+    .table th,
+    .table td {
+    padding: 12px 15px;
+    }
+
+    .table tbody tr {
+        border-bottom: thin solid #dddddd;
+    }
+    
+    .table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+    
+    .table tbody tr:last-of-type {
+        border-bottom: 2px solid #009879;
+    }
+
+    .styled-table tbody tr.active-row {
+        font-weight: bold;
+        color: #009879;
+    }

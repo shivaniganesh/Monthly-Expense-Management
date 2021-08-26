@@ -3,58 +3,54 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { Income } from '../classes/income';
+import { IIncome } from '../IIncome';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IncomeService {
+  [x: string]: any;
+  private resturl: string = 'http://localhost:8080/sprexp/income';
+  constructor(private http: HttpClient) { }
 
-  private url="http://localhost:8080/sprexp/income";
-
-  constructor(private http:HttpClient) { }
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
     }),
   };
-  
-  getIncomeFromService():Observable<Income[]>{
-    return this.http.get<Income[]>(this.url+'/allIncomes').pipe(retry(1), catchError(this.handleError));
-    
+
+  getIncomes(): Observable<IIncome[]> {
+    return this.http
+      .get<IIncome[]>(this.resturl + '/allIncomes')
+      .pipe(retry(1), catchError(this.handleError));
   }
-  addIncomeFromRemote(income:Income):Observable<any>{
-    return this.http.post(`${this.url}/addIncome`,income)
-
- }
- getIncome(incomeId:Income):Observable<any>{
-  return this.http.get<Income>(this.url+'/getIncome/'+incomeId).pipe(retry(1), catchError(this.handleError));
-  
-}
-createIncome(inc:any):Observable<any>{
-  return this.http.post<Income>(this.url+'/addIncome',inc).pipe(retry(1), catchError(this.handleError));
-
-}
-editIncome(inc:Income):Observable<any>{
-  return this.http.put<Income>(this.url+'/updateIncome',JSON.stringify(inc),this.httpOptions).pipe(retry(1), catchError(this.handleError));
-
-}
-deleteIncome(incomeId:any):Observable<any>{
-  return this.http.delete<Income>(this.url+'/deleteIncome/'+incomeId).pipe(retry(1), catchError(this.handleError));
-
-}
-
-  
-  handleError(err:any)
-  { let errorMessage="";
-  if(err.error instanceof ErrorEvent){
-    errorMessage=err.error.message;
-
-  }else {
-    errorMessage=`Error code : ${err.status} \n Error Message :${err.message}`;
+  createIncome(income: any): Observable<IIncome>{
+    return this.http.post<IIncome>(this.resturl+'/addIncome',JSON.stringify(income), this.httpOptions)
+    .pipe(retry(1), catchError(this.handleError));
   }
-  window.alert(errorMessage)
-  return throwError(errorMessage);
-  
+  updateIncome(income: any): Observable<IIncome> {
+    return this.http
+      .put<IIncome>(
+        this.resturl + '/updateIncome',
+        JSON.stringify(income),
+        this.httpOptions
+      )
+      .pipe(retry(1), catchError(this.handleError));
+  }
+  deleteIncome(incomeId: any): Observable<IIncome> {
+    return this.http
+      .delete<IIncome>(this.resturl + '/deleteIncome/' + incomeId, this.httpOptions)
+      .pipe(retry(1), catchError(this.handleError));
+  }
 
+  handleError(err: any) {
+    let errorMessage = '';
+    if (err.error instanceof ErrorEvent) {
+      errorMessage = err.error.message;
+    } else {
+      errorMessage = `Error code : ${err.status} \n Error Message : ${err.message}`;
+    }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
   }
 }

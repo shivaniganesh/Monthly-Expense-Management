@@ -1,3 +1,4 @@
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,7 +16,12 @@ export class ExpenseComponent implements OnInit {
   displayAdd = "none";
   display = "none";
   totalamount = 0;
+  searchText: any;
   expenseData: any = {};
+  ser={
+    category: ""
+  }
+  
 
   expenseToUpdate = {
     expenseId: "",
@@ -32,8 +38,18 @@ export class ExpenseComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadExpense();
-    this.getTotalExp();
+    // this.getTotalExp();
   }
+  // search() {
+  //   if(this.ser.category =="shop") {
+  //     this.loadExpense();
+  //   }else {
+  //     this.expense = this.expense.filter((res: any) =>{
+  //       return res.category.toLocalelowerCase().match(this.ser.category.toLocaleLowerCase());
+  //     })
+  //   }
+  // }
+
   loadExpense() {
     return this.restApi
       .getExpenses()
@@ -60,13 +76,15 @@ export class ExpenseComponent implements OnInit {
     );
   }
 }
+
+
   edit(exp: any) {
     this.expenseToUpdate = exp;
   }
   updateExp() {
     if (window.confirm('Are you sure , you want to update?')) {
       this.restApi.updateExpense(this.expenseToUpdate).subscribe((data: {}) => {
-        this.ngOnInit();
+        this.loadExpense();
       });
 
     }
@@ -89,15 +107,15 @@ export class ExpenseComponent implements OnInit {
     this.displayAdd = "none";
     this.ngOnInit();
   }
-  getTotalExp() {
-    let total = 0;
-    for (var i = 0; i < this.expense.length; i++) {
-        console.log(this.expense.length);
-        if (this.expense[i].expenseAmount) {
-            total += this.expense[i].expenseAmount;
-            this.totalamount = total;
-        }
-    }
-    return this.totalamount;
-}
+//   getTotalExp() {
+//     let total = 0;
+//     for (var i = 0; i < this.expense.length; i++) {
+//         console.log(this.expense.length);
+//         if (this.expense[i].expenseAmount) {
+//             total += this.expense[i].expenseAmount;
+//             this.totalamount = total;
+//         }
+//     }
+//     return this.totalamount;
+// }
 }

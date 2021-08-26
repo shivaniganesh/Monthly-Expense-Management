@@ -16,7 +16,7 @@ export class EditincomeComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-      this.restApi.getIncome(this.incomeId).subscribe(data=>this.incomeData=data);
+      this.restApi.getIncome(this.incomeId).subscribe((data: any)=>this.incomeData=data);
   }
   editIncome(){
     this.restApi.editIncome(this.incomeData).subscribe((data:{})=>{
