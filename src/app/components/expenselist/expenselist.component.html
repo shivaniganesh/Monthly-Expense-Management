@@ -6,11 +6,11 @@
   <div class="container">
     <div class="form-row">
 
-    
-        <div class="form-group">
+      <form #addExpenseForm="ngForm">
+        <div  class="form-group">
             <label for="category">Category </label> 
             <!-- <input type="text" class="form-control" id="category" name="category" [(ngModel)]="expenseData.category" > -->
-            <select class="form-control" name="category" id="category" [(ngModel)]="expenseData.category">
+            <select class="form-control" name="category" id="category" [(ngModel)]="expenseData.category" required #category="ngModel" [class.is-invalid]="category.invalid && category.touched">
               <option value=""></option>
               <option value="EMI">EMI</option>
               <option value="Rent">Rent</option>
@@ -23,18 +23,23 @@
               <option value="Insurance">Travelling</option>
               <option value="Other bills">Other bills</option>
 
-          </select><br>
+          </select><small class="text-danger" [class.d-none]="category.valid || category.untouched">Category is required field</small>
+          <br>
                 
         </div>
         <div class="form-group">
             <label for="expDate">Expense Date </label> 
-            <input type="text" class="form-control"  bsDatepicker [bsConfig]="datePickerConfig" id="expDate" name="date" [(ngModel)]="expenseData.createdDate"  >
+            <input type="date" class="form-control"   id="expDate" min="{{minDate}}"name="date" [(ngModel)]="expenseData.createdDate" required 
+             #date="ngModel" [class.is-invalid]="date.invalid && date.touched">
+            <small class="text-danger" [class.d-none]="date.valid || date.untouched">Date is required field</small>
             
                 
         </div>
         <div class="form-group">
             <label for="Amount">Amount </label> 
-            <input type="number" class="form-control" id="Amount" name="lname" [(ngModel)]="expenseData.expenseAmount"  >
+            <input type="number" class="form-control" id="Amount" name="lname" [(ngModel)]="expenseData.expenseAmount"  required #amount="ngModel"
+            [class.is-invalid]="amount.invalid && amount.touched"
+                    ><small class="text-danger" [class.d-none]="amount.valid || amount.untouched">Amount is required field</small>
                 
         </div>
         <div class="form-group">
@@ -42,10 +47,11 @@
             <input type="text" class="form-control" id="expenseDescription" name="lname" [(ngModel)]="expenseData.expenseDescription">     
         </div>
         
-    </div>
+    
     <div class="form-group">
-    <button type="submit" (click)="addExpense()"value="addexpense" class="btn btn-primary">Add Expense</button>
-    </div>
+    <button type="submit" [disabled]="addExpenseForm.form.invalid" (click)="addExpense()"value="addexpense" class="btn btn-primary">Add Expense</button>
+    </div></form>
+  </div>
 
    
 

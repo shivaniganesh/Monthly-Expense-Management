@@ -55,7 +55,7 @@ export class IncomeComponent implements OnInit {
  
   addIncome(){
     this.restApi.createIncome(this.incomeData).subscribe(data=>{
-      window.location.reload();
+      this.loadIncome();
     
     })
   }

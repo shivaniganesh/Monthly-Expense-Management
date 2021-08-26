@@ -10,6 +10,7 @@ import { IncomeService } from '../../services/income.service';
 })
 export class EditincomeComponent implements OnInit {
   incomeData:any=[];
+
   incomeId:any=this.aroute.snapshot.params['incomeId'];
   constructor(public aroute:ActivatedRoute,public restApi: IncomeService, public router: Router,
     
