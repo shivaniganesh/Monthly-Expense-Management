@@ -1,20 +1,65 @@
-<table>
-    <tr>
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+         Welcome {{fname}} ! to Expense Management System 
+</mat-toolbar>
 
-        <td>
-            <ngx-charts-gauge [view]="view" [scheme]="colorScheme" [results]="productSales" [legend]="legend"
-                [legendPosition]="legendPosition" (select)="onSelect($event)" (activate)="onActivate($event)"
-                (deactivate)="onDeactivate($event)">
-            </ngx-charts-gauge>
-        </td>
-    </tr>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
 
-    <tr>
+        <img class="avatar mat-elevation-z8"
+            src="https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=925&q=80" />
 
-        <td>
-            <ngx-charts-pie-grid [results]="productSales" [view]="view" [scheme]="colorScheme"
-                (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
-            </ngx-charts-pie-grid>
-        </td>
-    </tr>
-</table>
+        <h4 class="name">{{fname}}  {{lname}}</h4>
+        <p class="designation"></p>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" (click)="showDashHomePg()">
+            <mat-icon>dashboard</mat-icon>
+            <span>Dashboard</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/userprofile']"  >
+            <mat-icon>person</mat-icon>
+            <span>Profile</span>
+        </button>
+        <button mat-button class="menu-button">
+            <div style="padding-right: 10px;" [matMenuTriggerFor]="menu">
+            <mat-icon>info</mat-icon>
+            <span>Transaction</span>
+            </div>
+                <mat-menu #menu="matMenu" xPosition="after" class="my-class">
+                    <button mat-menu-item (click)="showIncomeTable()">Income</button>
+                    <button mat-menu-item (click)="showExpenseTable()">Expense</button>
+                </mat-menu>
+            
+        </button>
+
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button">
+            <mat-icon>help</mat-icon>
+            <span>Help</span>
+        </button>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="container mt">
+            <h1 id="dash-text" class="text-info">Hi! {{fname}}</h1>
+            <!-- <div id="maincontent">
+                
+            </div> -->
+            <app-dashhome ></app-dashhome>
+            <app-expenselist *ngIf="showExpense"></app-expenselist> 
+            <app-income *ngIf="showIncome"></app-income>
+        </div>
+        
+    </mat-sidenav-content>
+</mat-sidenav-container>

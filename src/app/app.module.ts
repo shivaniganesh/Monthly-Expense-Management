@@ -39,8 +39,38 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ReportsComponent } from './components/reports/reports.component';
 import { EmicalculatorComponent } from './components/emicalculator/emicalculator.component';
 import { BasicCalculatorComponent } from './components/basic-calculator/basic-calculator.component';
+import { DashhomeComponent } from './components/dashhome/dashhome.component';
 
 
+
+import {MatListModule} from '@angular/material/list';
+import {MatSelectModule} from '@angular/material/select';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+
+
+// import { NgxChartsModule } from '@swimlane/ngx-charts';
+
+
+
+
+ 
+
+
+
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+
+// import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
+// import { LoadingspinnerComponent } from './components/loadingspinner/loadingspinner.component';
+// import { Ng2SearchPipeModule } from 'ng2-search-filter';
+// import { Ng2OrderModule } from 'ng2-order-pipe';
+// import { NgxPaginationModule } from 'ngx-pagination';
+
+// import { ChartsModule } from 'ng2-charts';
 
  
 
@@ -65,6 +95,7 @@ import { BasicCalculatorComponent } from './components/basic-calculator/basic-ca
          ReportsComponent,
          EmicalculatorComponent,
          BasicCalculatorComponent,
+         DashhomeComponent,
          
   ],
   imports: [
@@ -75,6 +106,18 @@ import { BasicCalculatorComponent } from './components/basic-calculator/basic-ca
     HttpClientModule, ReactiveFormsModule,NgbModule,
     BsDatepickerModule,NgxChartsModule,
     BsDatepickerModule.forRoot(),
+
+   MatListModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatSidenavModule,
+    MatDividerModule,
+   // ChartsModule,
+    // WavesModule,
+   
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
 
   ],
   providers: [ExpenseService,IncomeService,LoginService],
