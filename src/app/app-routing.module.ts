@@ -43,7 +43,7 @@ const routes: Routes = [
   { path: 'reports', component:ReportsComponent,pathMatch:"full"  },
   { path: 'emi', component:EmicalculatorComponent,pathMatch:"full"  },
   { path: 'calculator',component: BasicCalculatorComponent,pathMatch:"full"  },
-  { path: '**',component: DashboardComponent,pathMatch:"full"  },
+ 
   { path: 'help',component: HelpComponent,pathMatch:"full"  },
   
 
