@@ -55,7 +55,7 @@ export class DashboardComponent implements OnInit {
 
   showDashHomePg() {
     
-    window.location.reload();
+    
     this.showExpense = false;
     this.showExpense = false;
     this.showDhome = true;
