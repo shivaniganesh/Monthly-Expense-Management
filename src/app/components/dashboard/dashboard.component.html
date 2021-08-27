@@ -7,7 +7,7 @@
             close
         </mat-icon>
     </button>
-         Welcome {{fname}} ! to Expense Management System 
+         Welcome {{fname}}  to Expense Management System 
 </mat-toolbar>
 
 <mat-sidenav-container>
@@ -44,19 +44,19 @@
 
         <mat-divider></mat-divider>
 
-        <button mat-button class="menu-button">
+        <button mat-button class="menu-button" [routerLink]="['/home']" routerLinkActive="router-link-active"  >
             <mat-icon>help</mat-icon>
             <span>Help</span>
         </button>
 
     </mat-sidenav>
     <mat-sidenav-content>
-        <div class="container mt">
-            <h1 id="dash-text" class="text-info">Hi! {{fname}}</h1>
+        <div class="container">
+            
             <!-- <div id="maincontent">
                 
             </div> -->
-            <app-dashhome ></app-dashhome>
+            <app-dashhome *ngIf="showDhome" ></app-dashhome>
             <app-expenselist *ngIf="showExpense"></app-expenselist> 
             <app-income *ngIf="showIncome"></app-income>
         </div>

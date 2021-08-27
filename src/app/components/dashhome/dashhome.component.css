@@ -47,7 +47,7 @@
 
   body{
     margin-top:20px;
-    background:#FAFAFA;
+    background:#7c4f4f;
 }
 .order-card {
     color: #fff;
@@ -55,9 +55,11 @@
 
 .bg-c-blue {
     background: linear-gradient(45deg,#4099ff,#73b4ff);
+    border-radius: 15px;
 }
 .bg-c-red {
     background: linear-gradient(45deg,#f02d2ddf,#f02d2dad);
+    border-radius: 15px;
 }
 
 .bg-c-green {
@@ -72,12 +74,17 @@
     background: linear-gradient(45deg,#FF5370,#ff869a);
 }
 
+.bg-c-violet {
+    background: linear-gradient(45deg,#9d53ff,#b486ffe3);
+}
+
 
 .card {
     border-radius: 15px;
     width: 250px;
     height: auto;
     object-fit: cover;
+    background-color: #fff0;
     -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
     box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
     border: none;
@@ -101,9 +108,31 @@
 .f-right {
     float: right;
 }
-
-
-
+.text-right {
+    color: #ffffffe6;
+}
+.m-b-0 {
+    columns: #ffffffe6;
+}
+.mbb:before{ 
+    content:"Negative Balance!";
+}
+.mbb1:after{ 
+    content:"Balance";
+}
+#balance-card{
+width: 100%!important;
+}
+#balance-card1{
+    width: 22%!important;
+}
+.container{
+    position: absolute;
+    top: 40%;
+    width: 90%;
+    left:8%;
+    transform: scale(1.1);
+}
 
 
 

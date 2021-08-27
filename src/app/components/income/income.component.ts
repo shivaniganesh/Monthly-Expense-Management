@@ -14,6 +14,7 @@ export class IncomeComponent implements OnInit {
   incomes:any=[];
   userData:any=[];
   btnValue="Add Income";
+  searchText:any;
   userId=localStorage.getItem("userId");
   constructor( 
     public router: Router,

@@ -1,0 +1,22 @@
+.helpc{
+   
+    background-image: url("src/assets/images/help1.jpg");
+    background-color: #cccccc;
+    height: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    color: white;
+  }
+  h1{
+    font-size: 35px;
+    color: rgb(252, 248, 248) ;
+}
+h2{
+    font-size: 30px;
+    color: rgb(241, 238, 238) ;
+}          
+p{
+   font-size: 19px;
+}

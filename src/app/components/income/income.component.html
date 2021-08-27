@@ -1,5 +1,5 @@
 <div class="container">
-    <Input type ="button" id="slide1"  value={{btnValue}}>
+    <Input type ="button" class="btn btn-primary "id="slide1"  value={{btnValue}}>
   </div>
   <div class="container-fluid" id="box1" style="display: none;">
     
@@ -37,7 +37,9 @@
 
 
 <div class="container mt">
-  
+  <div class="form-group"> 
+    <input type="text" class="form-control" id="Search-box" name="lname" [(ngModel)]="searchText" autocomplete="off" placeholder="Search from here">     
+</div>
     <table class="table table-hover ">
       <thead class="bg-primary">
         <tr>
@@ -50,7 +52,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let inc of incomes">
+        <tr *ngFor="let inc of incomes |filter:searchText">
             <td>{{ inc.incomeId }}</td>
             <td>{{ inc.incomeAmount }}</td>
             <td>{{ inc.incomeDescription }}</td>

@@ -22,7 +22,7 @@ export class ExpenselistComponent implements OnInit {
   userData: any = [];
   btnValue = "Add Expense";
   userId = localStorage.getItem("userId");
-
+  searchText:any;
   constructor(
     public router: Router,
     public aroute: ActivatedRoute,

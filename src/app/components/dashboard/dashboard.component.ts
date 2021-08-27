@@ -40,9 +40,18 @@ export class DashboardComponent implements OnInit {
       this.lname=this.userData.lname;
       //console.log(this.userName);
       localStorage.setItem("userId",this.userData.userId);
+
+      //for reloading only once
+      if (!localStorage.getItem('foo')) { 
+        localStorage.setItem('foo', 'no reload') 
+        location.reload() 
+      } else {
+        localStorage.removeItem('foo') 
+      }
+      
     
     });
-  }y
+  }
 
   showDashHomePg() {
     

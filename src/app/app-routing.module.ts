@@ -17,6 +17,9 @@ import { EditincomeComponent } from './components/editincome/editincome.componen
 import { ReportsComponent } from './components/reports/reports.component';
 import { EmicalculatorComponent } from './components/emicalculator/emicalculator.component';
 import { BasicCalculatorComponent } from './components/basic-calculator/basic-calculator.component';
+import { HelpComponent } from './components/help/help.component';
+
+
 
 
 const routes: Routes = [
@@ -41,6 +44,8 @@ const routes: Routes = [
   { path: 'emi', component:EmicalculatorComponent,pathMatch:"full"  },
   { path: 'calculator',component: BasicCalculatorComponent,pathMatch:"full"  },
   { path: '**',component: DashboardComponent,pathMatch:"full"  },
+  { path: 'help',component: HelpComponent,pathMatch:"full"  },
+  
 
   
   
